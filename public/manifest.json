@@ -1,0 +1,21 @@
+{
+  "name": "Bharat Hydraulics",
+  "short_name": "Bharat Hyd",
+  "description": "High-quality hydraulic hoses, fittings, and assemblies in Rajgangpur, Odisha.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#081C3A",
+  "theme_color": "#FF6A00",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
