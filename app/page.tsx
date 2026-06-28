@@ -1,25 +1,49 @@
 // app/page.tsx
 "use client";
 
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence, Variants, useScroll, useTransform, useInView, animate } from "framer-motion";
 import {
   ShieldCheck, Wrench, Clock, ThumbsUp, ArrowRight,
   CheckCircle2, Users, Factory, Award, MessageSquare, Phone,
   Pickaxe, Zap, Ship, Tractor, HardHat, Plus, Minus, MapPin
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
 };
+
+function AnimatedCounter({ from, to }: { from: number; to: number }) {
+  const [count, setCount] = useState(from);
+  const nodeRef = useRef(null);
+  const inView = useInView(nodeRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(from, to, {
+        duration: 2.5,
+        ease: "easeOut",
+        onUpdate(value) {
+          setCount(Math.round(value));
+        }
+      });
+      return () => controls.stop();
+    }
+  }, [from, to, inView]);
+
+  return <span ref={nodeRef}>{count >= 1000 ? (count / 1000).toFixed(0) + "k" : count}</span>;
+}
+
 
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -117,12 +141,12 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <button className="bg-[#0A2E6E] hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-900/40">
+              <a href="tel:+919178330536" className="bg-[#0A2E6E] hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-900/40">
                 <Phone size={20} /> CALL NOW
-              </button>
-              <button className="glass-card hover:bg-white hover:text-[#081C3A] text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg border border-white/20">
+              </a>
+              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="glass-card hover:bg-white hover:text-[#081C3A] text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg border border-white/20">
                 <MessageSquare size={20} className="text-[#25D366]" /> WHATSAPP US
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -198,9 +222,9 @@ export default function Home() {
                 ))}
               </div>
 
-              <button className="bg-[#081C3A] hover:bg-[#0A2E6E] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center gap-3 shadow-xl shadow-blue-900/20 active:scale-95">
-                Read More About Us <ArrowRight size={18} />
-              </button>
+              <a href="#services" className="bg-[#081C3A] hover:bg-[#0A2E6E] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center w-fit gap-3 shadow-xl shadow-blue-900/20 active:scale-95">
+                Explore Our Work <ArrowRight size={18} />
+              </a>
             </motion.div>
           </div>
         </div>
@@ -218,9 +242,9 @@ export default function Home() {
                   <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-2">Our Services</h2>
                   <h3 className="text-4xl font-extrabold text-[#081C3A] tracking-tight">Expert Solutions</h3>
                 </div>
-                <button className="text-[#0A2E6E] font-bold flex items-center gap-1 hover:text-[#FF6A00] transition-colors pb-2 border-b-2 border-transparent hover:border-[#FF6A00]">
-                  View All <ArrowRight size={16} />
-                </button>
+                <a href="#products" className="text-[#0A2E6E] font-bold flex items-center gap-1 hover:text-[#FF6A00] transition-colors pb-2 border-b-2 border-transparent hover:border-[#FF6A00]">
+                  View Products <ArrowRight size={16} />
+                </a>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -402,7 +426,7 @@ export default function Home() {
             {/* Stats Block */}
             <motion.div className="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#0A2E6E] to-[#081C3A] flex items-center justify-center p-8 text-center border border-white/10">
               <div className="space-y-3">
-                <div className="text-[#FF6A00] text-6xl font-black tracking-tighter">10k+</div>
+                <div className="text-[#FF6A00] text-6xl font-black tracking-tighter"><AnimatedCounter from={0} to={10000} />+</div>
                 <div className="text-white/90 text-xs font-bold tracking-widest uppercase">Parts in Inventory</div>
               </div>
             </motion.div>
@@ -516,12 +540,12 @@ export default function Home() {
             Our expert technicians are on standby to minimize your downtime and keep your heavy operations running smoothly.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <button className="bg-white text-[#081C3A] px-10 py-5 rounded-md font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl active:scale-95 flex items-center justify-center gap-3">
+            <a href="tel:+919178330536" className="bg-white text-[#081C3A] px-10 py-5 rounded-md font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl active:scale-95 flex items-center justify-center gap-3">
               <Phone size={22} /> Contact Us Now
-            </button>
-            <button className="bg-transparent text-white border-2 border-white px-10 py-5 rounded-md font-bold text-lg hover:bg-white/10 transition-all shadow-xl active:scale-95 flex items-center justify-center gap-3">
-              Browse Products <ArrowRight size={22} />
-            </button>
+            </a>
+            <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-10 py-5 rounded-md font-bold text-lg hover:bg-[#1da851] transition-all shadow-2xl active:scale-95 flex items-center justify-center gap-3">
+              <MessageSquare size={22} /> WhatsApp Us
+            </a>
           </div>
         </div>
       </section>

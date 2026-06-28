@@ -4,15 +4,30 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Menu, X, Mail } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuotePopupOpen, setIsQuotePopupOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", details: "" });
+  const { scrollYProgress } = useScroll();
+
+  const handleWhatsAppSubmit = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const message = `*New Quote Request*%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Requirements:* ${formData.details}`;
+    window.open(`https://wa.me/919178330536?text=${message}`, "_blank");
+    setIsQuotePopupOpen(false);
+    setFormData({ name: "", email: "", phone: "", details: "" });
+  };
 
   return (
     <>
-      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-gray-100 transition-all">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-[#FF6A00] origin-left z-[100] shadow-[0_0_10px_#FF6A00]"
+        style={{ scaleX: scrollYProgress }}
+      />
+      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-gray-100 transition-all mt-1">
         <div className="container mx-auto px-6 h-24 flex items-center justify-between">
           <Link href="/" className="flex items-center cursor-pointer group">
             <div className="relative w-[150px] h-[45px] md:w-[260px] md:h-[100px] lg:w-[280px] lg:h-[80px]">
@@ -45,7 +60,7 @@ export default function Navbar() {
             </button>
             <button className="bg-[#0A2E6E] hover:bg-[#081C3A] text-white px-7 py-3.5 rounded-md flex items-center gap-2 font-bold transition-all shadow-lg shadow-blue-900/20 active:scale-95">
               <Phone size={18} />
-              +91 98765 43210
+              +91 91783 30536
             </button>
           </div>
 
@@ -80,7 +95,7 @@ export default function Navbar() {
                     Request Quote
                   </button>
                   <button className="bg-[#0A2E6E] text-white w-full py-3 rounded-md flex items-center justify-center gap-2 font-bold hover:bg-[#081C3A] transition-colors">
-                    <Phone size={18} /> +91 98765 43210
+                    <Phone size={18} /> +91 91783 30536
                   </button>
                 </div>
               </nav>
@@ -115,13 +130,13 @@ export default function Navbar() {
               <p className="text-gray-500 mb-8">Fill out the details below and our team will get back to you within 24 hours.</p>
 
               <form className="flex flex-col gap-4">
-                <input type="text" placeholder="Your Name / Company" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" />
-                <input type="email" placeholder="Email Address" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" />
-                <input type="tel" placeholder="Phone Number" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" />
-                <textarea placeholder="Tell us about your requirements (e.g. Custom Hose Assembly, Spares)..." rows={4} className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors resize-none"></textarea>
+                <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="Your Name / Company" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Email Address" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="Phone Number" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <textarea value={formData.details} onChange={(e) => setFormData({...formData, details: e.target.value})} placeholder="Tell us about your requirements (e.g. Custom Hose Assembly, Spares)..." rows={4} className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors resize-none" required></textarea>
                 
-                <button type="button" onClick={(e) => { e.preventDefault(); alert('Quote Request Sent Successfully! We will contact you soon.'); setIsQuotePopupOpen(false); }} className="bg-[#FF6A00] text-white font-bold py-4 rounded-lg mt-2 flex items-center justify-center gap-2 hover:bg-[#e65f00] transition-colors shadow-lg shadow-[#FF6A00]/30">
-                  <Mail size={18} /> Submit Request
+                <button type="button" onClick={handleWhatsAppSubmit} className="bg-[#FF6A00] text-white font-bold py-4 rounded-lg mt-2 flex items-center justify-center gap-2 hover:bg-[#e65f00] transition-colors shadow-lg shadow-[#FF6A00]/30">
+                  <Mail size={18} /> Send via WhatsApp
                 </button>
               </form>
             </motion.div>

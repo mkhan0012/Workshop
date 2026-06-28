@@ -42,7 +42,7 @@ const jsonLd = {
   "name": "Bharat Hydraulics",
   "image": "/logo2.png",
   "url": "https://bharathydraulics.in",
-  "telephone": "+919876543210",
+  "telephone": "+919178330536",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Industrial Estate",
@@ -82,7 +82,7 @@ export default function RootLayout({
           <div className="container mx-auto px-6 flex justify-between items-center">
             <div className="flex gap-6">
               <span className="flex items-center gap-2"><MapPin size={14} className="text-[#FF6A00]" /> Rajgangpur, Odisha</span>
-              <span className="flex items-center gap-2"><Mail size={14} className="text-[#FF6A00]" /> info@bharathydraulics.in</span>
+              <span className="flex items-center gap-2"><Mail size={14} className="text-[#FF6A00]" /> moshink0786@gmail.com</span>
               <span className="flex items-center gap-2"><Clock size={14} className="text-[#FF6A00]" /> Mon - Sat: 8:30 AM - 7:00 PM</span>
             </div>
             <div className="flex gap-5">
@@ -189,13 +189,13 @@ export default function RootLayout({
                     <div className="bg-white/5 p-2 rounded-md group-hover:bg-[#FF6A00] group-hover:text-white transition-colors text-[#FF6A00]">
                       <Phone size={18} /> 
                     </div>
-                    <span className="font-semibold text-white tracking-wide">+91 98765 43210</span>
+                    <span className="font-semibold text-white tracking-wide">+91 91783 30536</span>
                   </li>
                   <li className="flex gap-4 items-center group">
                     <div className="bg-white/5 p-2 rounded-md group-hover:bg-[#FF6A00] group-hover:text-white transition-colors text-[#FF6A00]">
                       <Mail size={18} /> 
                     </div>
-                    <a href="mailto:info@bharathydraulics.in" className="hover:text-[#FF6A00] transition-colors">info@bharathydraulics.in</a>
+                    <a href="mailto:moshink0786@gmail.com" className="hover:text-[#FF6A00] transition-colors">moshink0786@gmail.com</a>
                   </li>
                 </ul>
               </div>
@@ -215,7 +215,7 @@ export default function RootLayout({
 
         {/* Floating WhatsApp Widget */}
         <a 
-          href="https://wa.me/919876543210" 
+          href="https://wa.me/919178330536" 
           target="_blank" 
           rel="noopener noreferrer"
           className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center animate-bounce group border-[3px] border-white/20"
