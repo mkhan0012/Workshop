@@ -7,12 +7,12 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Bharat Hydraulics | Top Rajgangpur Hydraulics Hose & Fittings",
-  description: "Looking for Bharat hydraulic hose? Get the best Rajgangpur hydraulics hose repair, high-pressure fittings, and custom assemblies. Bharat Hydraulics provides 24/7 on-site support.",
-  keywords: "rajgangpur hydraulics hose, bharat hydraulic hose, bharat hydraulics, Hydraulic Hose Repair, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, High Pressure adaptors, Quick couplings, Hydraulic components Rourkela, Emergency hydraulic service",
+  title: "Bharat Hydraulics | Hydraulic Repair Shop & Hose Repair Near Me",
+  description: "Top-rated hydraulic repair shop near me in Rajgangpur, Odisha. We specialize in hydraulic hose repair near me, custom assemblies, high-pressure fittings, and 24/7 on-site hydraulic troubleshooting.",
+  keywords: "hydraulic repair shop near me, hydraulic repair shop, hydraulic hose repair near me, hydraulic hose repair, hydraulic hose making near me, hydraulic cylinder repair near me, rajgangpur hydraulics hose, bharat hydraulic hose, bharat hydraulics, Hydraulic Hose Repair Rajgangpur, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, Emergency hydraulic service",
   openGraph: {
-    title: "Bharat Hydraulics | Top Rajgangpur Hydraulics Hose Solutions",
-    description: "Your trusted partner for custom Bharat hydraulic hose, fittings, and 24/7 emergency troubleshooting in Rajgangpur, Sundargarh, and Rourkela.",
+    title: "Bharat Hydraulics | Hydraulic Repair Shop & Hose Repair Near Me",
+    description: "Your trusted partner for custom Bharat hydraulic hose, fittings, and 24/7 emergency troubleshooting. The best hydraulic repair shop near me in Rajgangpur and Sundargarh.",
     siteName: "Bharat Hydraulics",
     locale: "en_IN",
     type: "website",

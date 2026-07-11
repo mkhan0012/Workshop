@@ -197,10 +197,10 @@ export default function Home() {
             >
               <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-3">About Bharat Hydraulics</h2>
               <h3 className="text-4xl md:text-5xl font-extrabold text-[#081C3A] mb-8 leading-tight tracking-tight">
-                Top Quality Bharat Hydraulic Hose & Accessories.
+                Your Trusted Hydraulic Repair Shop
               </h3>
               <p className="text-gray-600 mb-10 leading-relaxed text-lg font-light">
-                With over 6 years of dedicated industrial experience, Bharat Hydraulics has established itself as a trusted name in providing reliable, high-pressure hydraulic solutions. If you need a durable Rajgangpur hydraulics hose, we've got you covered. We focus on precision engineering, premium OEM parts, and rapid response times to minimize your downtime.
+                If you are constantly searching for a reliable <strong>hydraulic repair shop near me</strong> or need immediate <strong>hydraulic hose repair near me</strong>, Bharat Hydraulics is your ultimate destination. With over 6 years of dedicated industrial experience, we have established ourselves as the top <strong>hydraulic repair shop</strong> in the region for high-pressure fluid solutions. Whether you need a custom Rajgangpur hydraulics hose, heavy-duty fittings, or emergency on-site troubleshooting, our expert technicians are ready to minimize your downtime using premium OEM parts.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
