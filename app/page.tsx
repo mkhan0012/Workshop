@@ -76,8 +76,8 @@ export default function Home() {
         
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
-            src="/hero-cinematic.png"
-            alt="Cinematic Drone View of Bharat Hydraulics Machinery"
+            src="/hero.png"
+            alt="Bharat Hydraulics Machinery"
             fill
             sizes="100vw"
             className="object-cover object-center"
