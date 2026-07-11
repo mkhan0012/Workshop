@@ -10,18 +10,41 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuotePopupOpen, setIsQuotePopupOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", details: "" });
+  const [toastMessage, setToastMessage] = useState("");
   const { scrollYProgress } = useScroll();
 
   const handleWhatsAppSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
+    if (!formData.name || !formData.phone) {
+      setToastMessage("Please fill out your Name and Phone Number.");
+      setTimeout(() => setToastMessage(""), 4000);
+      return;
+    }
     const message = `*New Quote Request*%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Requirements:* ${formData.details}`;
     window.open(`https://wa.me/919178330536?text=${message}`, "_blank");
     setIsQuotePopupOpen(false);
     setFormData({ name: "", email: "", phone: "", details: "" });
+    setToastMessage("Redirecting to WhatsApp...");
+    setTimeout(() => setToastMessage(""), 4000);
   };
 
   return (
     <>
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[2000] bg-gray-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 font-semibold text-sm border border-white/10"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#FF6A00] animate-pulse" />
+            {toastMessage}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#FF6A00] origin-left z-[100] shadow-[0_0_10px_#FF6A00]"
@@ -67,6 +90,7 @@ export default function Navbar() {
           <button 
             className="lg:hidden p-2 text-[#081C3A]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -122,6 +146,7 @@ export default function Navbar() {
               <button 
                 onClick={() => setIsQuotePopupOpen(false)}
                 className="absolute top-6 right-6 text-gray-400 hover:text-gray-800 transition-colors"
+                aria-label="Close quote popup"
               >
                 <X size={24} />
               </button>

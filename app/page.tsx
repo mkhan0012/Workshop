@@ -47,12 +47,6 @@ function AnimatedCounter({ from, to }: { from: number; to: number }) {
 
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 250]);
@@ -74,35 +68,6 @@ export default function Home() {
 
   return (
     <>
-      {/* 0. INITIAL LOADING SCREEN */}
-      <AnimatePresence>
-        {loading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="fixed inset-0 z-[999] bg-[#081C3A] flex flex-col items-center justify-center"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-[280px] h-[80px] mb-8"
-            >
-              <Image src="/logo2.png" alt="Loading" fill className="object-contain brightness-0 invert" priority />
-            </motion.div>
-            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
-              <motion.div 
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="absolute inset-y-0 left-0 bg-[#FF6A00]"
-              />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* 1. HERO SECTION */}
       <section className="relative h-[85vh] min-h-[650px] w-full flex items-center bg-[#081C3A] overflow-hidden">
         {/* Animated Premium Glowing Orbs */}
@@ -120,6 +85,7 @@ export default function Home() {
               src="/hero-cinematic.png"
               alt="Cinematic Drone View of Bharat Hydraulics Machinery"
               fill
+              sizes="100vw"
               className="object-cover object-center"
               priority
             />
@@ -195,6 +161,7 @@ export default function Home() {
                 src="/warehouse.png"
                 alt="Workshop capabilities"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-left group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A]/80 to-transparent" />
@@ -266,7 +233,7 @@ export default function Home() {
                     className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="h-40 bg-gray-100 rounded-xl mb-6 overflow-hidden relative">
-                      <Image src={srv.img} alt={srv.title} fill className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
+                      <Image src={srv.img} alt={srv.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
                     </div>
                     <h4 className="font-bold text-[#081C3A] text-xl mb-2">{srv.title}</h4>
                     <p className="text-gray-500 text-sm leading-relaxed">{srv.desc}</p>
@@ -298,7 +265,7 @@ export default function Home() {
                     className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6A00] transition-colors cursor-pointer group shadow-sm hover:shadow-lg"
                   >
                     <div className="w-20 h-20 relative mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-md">
-                      <Image src={prod.img} alt={prod.name} fill className="object-cover rounded-xl" />
+                      <Image src={prod.img} alt={prod.name} fill sizes="80px" className="object-cover rounded-xl" />
                     </div>
                     <h4 className="font-bold text-sm text-[#081C3A]">{prod.name}</h4>
                   </motion.div>
@@ -412,7 +379,7 @@ export default function Home() {
               whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
               className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
             >
-              <Image src="/realpic.jpeg" alt="Our state-of-the-art workshop" fill className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/realpic.jpeg" alt="Our state-of-the-art workshop" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A]/90 via-[#081C3A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
                 <span className="text-white font-bold text-3xl tracking-tight">Our State-of-the-Art Assembly Facility</span>
               </div>
@@ -423,7 +390,7 @@ export default function Home() {
               whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
               className="md:col-span-2 md:row-span-1 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
             >
-              <Image src="/realpic2.jpeg" alt="On-site machinery and stock" fill className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/realpic2.jpeg" alt="On-site machinery and stock" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                 <span className="text-white text-xs font-bold tracking-widest uppercase">Live Operations</span>
@@ -443,7 +410,7 @@ export default function Home() {
               whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
               className="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
             >
-              <Image src="/Machinery.png" alt="Heavy Machinery" fill className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/Machinery.png" alt="Heavy Machinery" fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </motion.div>
           </div>
@@ -504,6 +471,7 @@ export default function Home() {
           <div className="bg-white p-4 rounded-3xl shadow-xl shadow-blue-900/5 flex flex-col lg:flex-row gap-8 items-center border border-gray-100">
             <div className="w-full lg:w-2/3 h-[400px] rounded-2xl overflow-hidden relative group">
               <iframe 
+                title="Bharat Hydraulics Location on Google Maps"
                 src="https://maps.google.com/maps?q=Bharat+Hydraulics,+Rajgangpur,+Odisha&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
