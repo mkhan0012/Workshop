@@ -110,13 +110,20 @@ export default function Home() {
         <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] bg-[#0A2E6E]/60 rounded-full blur-[150px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
         
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-          <Image
-            src="/hero.png"
-            alt="Heavy Duty Hydraulic Excavator in action at Bharat Hydraulics, Rajgangpur"
-            fill
-            className="object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
-            priority
-          />
+          <motion.div
+            initial={{ scale: 1.1, x: 0, y: 0 }}
+            animate={{ scale: 1.25, x: "-2%", y: "2%" }}
+            transition={{ duration: 25, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+            className="absolute inset-0 z-0"
+          >
+            <Image
+              src="/hero-cinematic.png"
+              alt="Cinematic Drone View of Bharat Hydraulics Machinery"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A] via-[#081C3A]/85 to-[#081C3A]/30 z-10" />
         </motion.div>
 
@@ -131,13 +138,13 @@ export default function Home() {
 
             <motion.div variants={fadeUp}>
               <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
-                HYDRAULIC <span className="text-[#FF6A00]">SOLUTIONS</span><br />
-                THAT KEEP YOU <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">MOVING</span>
+                BHARAT <span className="text-[#FF6A00]">HYDRAULICS</span><br />
+                PREMIUM RAJGANGPUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">HOSE</span>
               </h1>
             </motion.div>
 
             <motion.p variants={fadeUp} className="text-lg text-gray-300 mb-10 max-w-2xl leading-relaxed font-light">
-              We provide high-quality hydraulic hoses, fittings, and assemblies for all industrial and mobile applications. Engineered for extreme environments, built on reliability.
+              We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
@@ -202,10 +209,10 @@ export default function Home() {
             >
               <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-3">About Bharat Hydraulics</h2>
               <h3 className="text-4xl md:text-5xl font-extrabold text-[#081C3A] mb-8 leading-tight tracking-tight">
-                Committed to Quality, Performance & Satisfaction.
+                Top Quality Bharat Hydraulic Hose & Accessories.
               </h3>
               <p className="text-gray-600 mb-10 leading-relaxed text-lg font-light">
-                With over 6 years of dedicated industrial experience, Bharat Hydraulics has established itself as a trusted name in providing reliable, high-pressure hydraulic solutions. We understand that machinery downtime costs money, which is why we focus on precision engineering, premium OEM parts, and rapid response times.
+                With over 6 years of dedicated industrial experience, Bharat Hydraulics has established itself as a trusted name in providing reliable, high-pressure hydraulic solutions. If you need a durable Rajgangpur hydraulics hose, we've got you covered. We focus on precision engineering, premium OEM parts, and rapid response times to minimize your downtime.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">

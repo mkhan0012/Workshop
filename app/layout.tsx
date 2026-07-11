@@ -7,12 +7,12 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Bharat Hydraulics | Top Hydraulic Hoses & Fittings in Rajgangpur, Odisha",
-  description: "Best hydraulic hose repair, high-pressure fittings, and assemblies in Rajgangpur, Odisha. We provide 24/7 emergency on-site support and industrial OEM spares.",
-  keywords: "Hydraulic Hose Repair, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, High Pressure adaptors, Quick couplings, Hydraulic components Rourkela, Emergency hydraulic service, Hydraulic spares",
+  title: "Bharat Hydraulics | Top Rajgangpur Hydraulics Hose & Fittings",
+  description: "Looking for Bharat hydraulic hose? Get the best Rajgangpur hydraulics hose repair, high-pressure fittings, and custom assemblies. Bharat Hydraulics provides 24/7 on-site support.",
+  keywords: "rajgangpur hydraulics hose, bharat hydraulic hose, bharat hydraulics, Hydraulic Hose Repair, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, High Pressure adaptors, Quick couplings, Hydraulic components Rourkela, Emergency hydraulic service",
   openGraph: {
-    title: "Bharat Hydraulics | Top Hydraulic Solutions in Odisha",
-    description: "Your trusted partner for custom hydraulic hoses, fittings, and 24/7 emergency troubleshooting in Rajgangpur, Sundargarh, and Rourkela.",
+    title: "Bharat Hydraulics | Top Rajgangpur Hydraulics Hose Solutions",
+    description: "Your trusted partner for custom Bharat hydraulic hose, fittings, and 24/7 emergency troubleshooting in Rajgangpur, Sundargarh, and Rourkela.",
     siteName: "Bharat Hydraulics",
     locale: "en_IN",
     type: "website",
