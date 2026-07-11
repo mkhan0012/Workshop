@@ -74,24 +74,18 @@ export default function Home() {
         <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#FF6A00]/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
         <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] bg-[#0A2E6E]/60 rounded-full blur-[150px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
         
-        <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-          <motion.div
-            initial={{ scale: 1.1, x: 0, y: 0 }}
-            animate={{ scale: 1.25, x: "-2%", y: "2%" }}
-            transition={{ duration: 25, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
-            className="absolute inset-0 z-0"
-          >
-            <Image
-              src="/hero-cinematic.png"
-              alt="Cinematic Drone View of Bharat Hydraulics Machinery"
-              fill
-              sizes="100vw"
-              className="object-cover object-center"
-              priority
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A] via-[#081C3A]/85 to-[#081C3A]/30 z-10" />
-        </motion.div>
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/hero-cinematic.png"
+            alt="Cinematic Drone View of Bharat Hydraulics Machinery"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+          {/* Lighter gradient so the image is visible even on small mobile screens */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/80 via-[#081C3A]/50 to-transparent z-10" />
+        </div>
 
         <div className="container mx-auto px-6 relative z-20">
           <motion.div
