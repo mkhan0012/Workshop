@@ -71,75 +71,100 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative h-[85vh] min-h-[650px] w-full flex items-center bg-[#081C3A] overflow-hidden">
         {/* Animated Premium Glowing Orbs */}
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#FF6A00]/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
-        <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] bg-[#0A2E6E]/60 rounded-full blur-[150px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
+        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#FF6A00]/30 rounded-full blur-[140px] pointer-events-none mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
+        <div className="absolute -bottom-32 -right-32 w-[800px] h-[800px] bg-[#0A2E6E]/70 rounded-full blur-[160px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
         
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="/hero.png"
-            alt="Bharat Hydraulics Machinery"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            priority
-          />
-          {/* Lighter gradient so the image is visible even on small mobile screens */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/80 via-[#081C3A]/50 to-transparent z-10" />
+          <motion.div
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 12, ease: "easeOut" }}
+            className="w-full h-full relative"
+          >
+            <Image
+              src="/hero.png"
+              alt="Bharat Hydraulics Machinery"
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+              priority
+            />
+          </motion.div>
+          {/* Richer multi-layered gradient to ensure text readability while keeping the image vibrant */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/70 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A] via-transparent to-[#081C3A]/30 z-10" />
         </div>
 
         <div className="container mx-auto px-6 relative z-20">
           <motion.div
             initial="hidden" animate="visible" variants={staggerContainer}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <motion.div variants={fadeUp} className="inline-block bg-[#FF6A00]/10 border border-[#FF6A00]/20 px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
-              <span className="text-[#FF6A00] font-semibold text-sm tracking-widest uppercase">Welcome to Bharat Hydraulics</span>
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2 rounded-full mb-8 backdrop-blur-md shadow-2xl">
+              <span className="flex h-2.5 w-2.5 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6A00] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6A00]"></span>
+              </span>
+              <span className="text-white/90 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase">Welcome to Bharat Hydraulics</span>
             </motion.div>
 
             <motion.div variants={fadeUp}>
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
-                BHARAT <span className="text-[#FF6A00]">HYDRAULICS</span><br />
-                PREMIUM RAJGANGPUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">HOSE</span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-4 tracking-tighter drop-shadow-2xl">
+                BHARAT <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] drop-shadow-lg">
+                  HYDRAULICS
+                </span>
               </h1>
+              <h2 className="text-2xl md:text-4xl font-light text-white/90 mb-8 tracking-wide">
+                PREMIUM RAJGANGPUR <span className="font-bold text-white">HOSE</span>
+              </h2>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-lg text-gray-300 mb-10 max-w-2xl leading-relaxed font-light">
+            <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-300/95 mb-10 max-w-2xl leading-relaxed font-light backdrop-blur-sm bg-black/10 p-5 -ml-5 border-l-2 border-[#FF6A00] rounded-r-2xl shadow-xl">
               We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <a href="tel:+919178330536" className="bg-[#0A2E6E] hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-900/40">
-                <Phone size={20} /> CALL NOW
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-5">
+              <a href="tel:+919178330536" className="group relative overflow-hidden bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-[0_0_30px_rgba(10,46,110,0.5)] border border-blue-500/30">
+                <Phone size={22} className="text-blue-300" /> 
+                <span className="tracking-wide relative z-10">CALL NOW</span>
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
               </a>
-              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="glass-card hover:bg-white hover:text-[#081C3A] text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg border border-white/20">
-                <MessageSquare size={20} className="text-[#25D366]" /> WHATSAPP US
+              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="group bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg border border-white/20 backdrop-blur-md">
+                <MessageSquare size={22} className="text-[#25D366]" /> 
+                <span className="tracking-wide">WHATSAPP US</span>
               </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. TRUST INDICATORS */}
-      <section className="bg-[#0A2E6E] text-white py-12 relative z-30 -mt-10 mx-6 lg:mx-20 rounded-2xl shadow-2xl border border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: ShieldCheck, title: "QUALITY PRODUCTS", desc: "Best quality raw materials & tested spares." },
-              { icon: Wrench, title: "EXPERT TECHNICIANS", desc: "Skilled professionals with years of experience." },
-              { icon: Clock, title: "FAST SERVICE", desc: "Quick turnaround time & on-site support." },
-              { icon: ThumbsUp, title: "CUSTOMER TRUST", desc: "Strong relationships built on reliability." }
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 group">
-                <div className="p-3 bg-white/10 rounded-xl text-[#FF6A00] group-hover:bg-[#FF6A00] group-hover:text-white transition-all duration-300 transform group-hover:scale-110">
-                  <item.icon size={28} strokeWidth={2} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base mb-1 tracking-wide">{item.title}</h3>
-                  <p className="text-sm text-blue-200/80 leading-snug">{item.desc}</p>
-                </div>
-              </div>
+      {/* 2. TRUST INDICATORS - ANIMATED MARQUEE */}
+      <section className="bg-[#0A2E6E] text-white py-8 relative z-30 -mt-10 mx-6 lg:mx-20 rounded-2xl shadow-2xl border border-white/5 overflow-hidden">
+        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-12 animate-marquee whitespace-nowrap py-2">
+            {[...Array(2)].map((_, arrayIndex) => (
+              <>
+                {[
+                  { icon: ShieldCheck, title: "QUALITY PRODUCTS", desc: "Best raw materials & tested spares" },
+                  { icon: Wrench, title: "EXPERT TECHNICIANS", desc: "Skilled professionals on-site" },
+                  { icon: Clock, title: "FAST SERVICE", desc: "Quick turnaround & support" },
+                  { icon: ThumbsUp, title: "CUSTOMER TRUST", desc: "Relationships built on reliability" },
+                  { icon: Factory, title: "ISO CERTIFIED", desc: "Compliant with global standards" }
+                ].map((item, i) => (
+                  <li key={`${arrayIndex}-${i}`} className="flex items-center gap-4 group cursor-default">
+                    <div className="p-3 bg-white/10 rounded-xl text-[#FF6A00] group-hover:bg-[#FF6A00] group-hover:text-white transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6">
+                      <item.icon size={32} strokeWidth={2} />
+                    </div>
+                    <div className="flex flex-col">
+                      <h3 className="font-bold text-lg mb-0.5 tracking-wider">{item.title}</h3>
+                      <p className="text-sm text-blue-200/80">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -151,13 +176,15 @@ export default function Home() {
               initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] group"
             >
-              <Image
-                src="/warehouse.png"
-                alt="Workshop capabilities"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-left group-hover:scale-105 transition-transform duration-700"
-              />
+              <motion.div style={{ y: useTransform(scrollY, [0, 2000], [0, 150]) }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
+                <Image
+                  src="/warehouse.png"
+                  alt="Workshop capabilities"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-left group-hover:scale-105 transition-transform duration-700"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A]/80 to-transparent" />
               <div className="absolute bottom-8 right-8 bg-[#FF6A00] p-8 rounded-2xl text-white shadow-2xl backdrop-blur-md">
                 <h4 className="text-5xl font-black mb-1">6+</h4>
@@ -203,8 +230,8 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-16">
 
-            {/* Services Left */}
-            <div className="w-full lg:w-1/2">
+            {/* Services Left - STICKY FOR IMMERSIVE SCROLLING */}
+            <div className="w-full lg:w-1/2 lg:sticky lg:top-32 h-fit mb-10 lg:mb-0">
               <div className="flex justify-between items-end mb-10">
                 <div>
                   <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-2">Our Services</h2>
