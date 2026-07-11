@@ -58,8 +58,7 @@ export default function Navbar() {
                 src="/logo2.png"
                 alt="Bharat Hydraulics Logo"
                 fill
-                sizes="(max-width: 768px) 200px, (max-width: 1024px) 260px, 280px"
-                quality={100}
+                sizes="(max-width: 768px) 150px, (max-width: 1024px) 260px, 280px"
                 className="object-contain object-left group-hover:opacity-85 transition-opacity"
                 priority
               />

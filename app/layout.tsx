@@ -121,8 +121,7 @@ export default function RootLayout({
                     src="/logo2.png" 
                     alt="Bharat Hydraulics Logo" 
                     fill
-                    sizes="300px"
-                    quality={100}
+                    sizes="200px"
                     /* Note: 'brightness-0 invert' forces the logo to be solid white. 
                        Remove these 2 words if your transparent logo already has white text. */
                     className="object-contain object-left group-hover:opacity-85 transition-opacity brightness-0 invert" 
