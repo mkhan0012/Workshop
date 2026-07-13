@@ -4,6 +4,7 @@ import "./globals.css";
 import { MapPin, Mail, Clock, Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
@@ -77,6 +78,26 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased flex flex-col min-h-screen bg-[var(--color-background)]">
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VPNWDC99M7"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VPNWDC99M7', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
         {/* Top Information Bar */}
         <div className="bg-[#081C3A] text-white/80 text-xs py-2 hidden md:block">
           <div className="container mx-auto px-6 flex justify-between items-center">
