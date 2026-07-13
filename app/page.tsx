@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <>
       {/* 1. HERO SECTION */}
-      <section className="relative h-[85vh] min-h-[650px] w-full flex items-center bg-[#081C3A] overflow-hidden">
+      <section className="relative min-h-[100vh] md:min-h-[85vh] w-full flex flex-col justify-center pt-32 pb-32 lg:pt-40 lg:pb-36 bg-[#081C3A] overflow-hidden">
         {/* Animated Premium Glowing Orbs */}
         <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#FF6A00]/30 rounded-full blur-[140px] pointer-events-none mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
         <div className="absolute -bottom-32 -right-32 w-[800px] h-[800px] bg-[#0A2E6E]/70 rounded-full blur-[160px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
@@ -91,7 +91,7 @@ export default function Home() {
             />
           </motion.div>
           {/* Richer multi-layered gradient to ensure text readability while keeping the image vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/70 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/80 to-transparent z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A] via-transparent to-[#081C3A]/30 z-10" />
         </div>
 
@@ -120,7 +120,7 @@ export default function Home() {
               </h2>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-300/95 mb-10 max-w-2xl leading-relaxed font-light backdrop-blur-sm bg-black/10 p-5 -ml-5 border-l-2 border-[#FF6A00] rounded-r-2xl shadow-xl">
+            <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-300/95 mb-10 max-w-2xl leading-relaxed font-light backdrop-blur-sm bg-black/10 p-5 md:-ml-5 border-l-2 border-[#FF6A00] rounded-r-2xl shadow-xl">
               We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
             </motion.p>
 
