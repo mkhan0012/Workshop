@@ -47,10 +47,10 @@ export default function Navbar() {
 
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#FF6A00] origin-left z-[100] shadow-[0_0_10px_#FF6A00]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] origin-left z-[100] shadow-[0_0_15px_rgba(255,106,0,0.8)]"
         style={{ scaleX: scrollYProgress }}
       />
-      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-gray-100 transition-all mt-1">
+      <header className="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-b border-gray-100/50 transition-all mt-1">
         <div className="container mx-auto px-6 h-24 flex items-center justify-between">
           <Link href="/" className="flex items-center cursor-pointer group">
             <div className="relative w-[150px] h-[45px] md:w-[260px] md:h-[100px] lg:w-[280px] lg:h-[80px]">
@@ -65,24 +65,40 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8 font-medium text-sm text-[#081C3A]">
-            <Link href="/" className="text-[#FF6A00] border-b-2 border-[#FF6A00] pb-1">HOME</Link>
-            <Link href="#about" className="hover:text-[#FF6A00] transition-colors">ABOUT US</Link>
-            <Link href="#services" className="hover:text-[#FF6A00] transition-colors">SERVICES</Link>
-            <Link href="#products" className="hover:text-[#FF6A00] transition-colors">PRODUCTS</Link>
-            <Link href="#gallery" className="hover:text-[#FF6A00] transition-colors">GALLERY</Link>
+          <nav className="hidden lg:flex items-center gap-8 font-bold text-sm text-[#081C3A] tracking-wider">
+            <Link href="/" className="relative group text-[#FF6A00]">
+              <span>HOME</span>
+              <span className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-[#FF6A00] rounded-full"></span>
+            </Link>
+            <Link href="#about" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>ABOUT US</span>
+              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
+            </Link>
+            <Link href="#services" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>SERVICES</span>
+              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
+            </Link>
+            <Link href="#products" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>PRODUCTS</span>
+              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
+            </Link>
+            <Link href="#gallery" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>GALLERY</span>
+              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
+            </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5">
             <button 
               onClick={() => setIsQuotePopupOpen(true)}
-              className="bg-transparent border-2 border-[#0A2E6E] text-[#0A2E6E] hover:bg-[#0A2E6E] hover:text-white px-5 py-3 rounded-md font-bold transition-all"
+              className="relative overflow-hidden bg-transparent border-2 border-[#0A2E6E] text-[#0A2E6E] px-6 py-2.5 rounded-md font-bold transition-all group hover:text-white hover:border-[#0A2E6E]"
             >
-              Request Quote
+              <span className="relative z-10">Request Quote</span>
+              <div className="absolute inset-0 h-full w-full bg-[#0A2E6E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
             </button>
-            <button className="bg-[#0A2E6E] hover:bg-[#081C3A] text-white px-7 py-3.5 rounded-md flex items-center gap-2 font-bold transition-all shadow-lg shadow-blue-900/20 active:scale-95">
-              <Phone size={18} />
-              +91 91783 30536
+            <button className="bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-7 py-3 rounded-md flex items-center gap-2 font-bold transition-all transform hover:-translate-y-0.5 shadow-[0_5px_15px_rgba(10,46,110,0.3)] hover:shadow-[0_8px_25px_rgba(10,46,110,0.4)] active:scale-95 border border-white/10">
+              <Phone size={18} className="animate-pulse" />
+              <span className="tracking-wide">+91 91783 30536</span>
             </button>
           </div>
 

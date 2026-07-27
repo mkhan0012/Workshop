@@ -71,14 +71,17 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[100vh] md:min-h-[85vh] w-full flex flex-col justify-center pt-32 pb-32 lg:pt-40 lg:pb-36 bg-[#081C3A] overflow-hidden">
         {/* Animated Premium Glowing Orbs */}
-        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#FF6A00]/30 rounded-full blur-[140px] pointer-events-none mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
-        <div className="absolute -bottom-32 -right-32 w-[800px] h-[800px] bg-[#0A2E6E]/70 rounded-full blur-[160px] pointer-events-none mix-blend-screen animate-[pulse_12s_ease-in-out_infinite_reverse]" />
+        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#FF6A00]/25 rounded-full blur-[140px] pointer-events-none mix-blend-screen animate-pulse-slow" />
+        <div className="absolute -bottom-32 -right-32 w-[800px] h-[800px] bg-[#0A2E6E]/60 rounded-full blur-[160px] pointer-events-none mix-blend-screen animate-pulse-slow" style={{animationDelay: '2s'}} />
         
+        {/* Precision Engineering Grid */}
+        <div className="absolute inset-0 z-0 bg-engineering-grid animate-grid opacity-30 mix-blend-overlay pointer-events-none" />
+
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.div
-            initial={{ scale: 1.15 }}
+            initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 12, ease: "easeOut" }}
+            transition={{ duration: 20, ease: "linear" }}
             className="w-full h-full relative"
           >
             <Image
@@ -91,8 +94,8 @@ export default function Home() {
             />
           </motion.div>
           {/* Richer multi-layered gradient to ensure text readability while keeping the image vibrant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/80 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A] via-transparent to-[#081C3A]/30 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/85 to-[#081C3A]/10 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A] via-transparent to-[#081C3A]/40 z-10" />
         </div>
 
         <div className="container mx-auto px-6 relative z-20">
@@ -125,14 +128,15 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-5">
-              <a href="tel:+919178330536" className="group relative overflow-hidden bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-[0_0_30px_rgba(10,46,110,0.5)] border border-blue-500/30">
-                <Phone size={22} className="text-blue-300" /> 
+              <a href="tel:+919178330536" className="group relative overflow-hidden bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] text-white px-9 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-[0_0_30px_rgba(255,106,0,0.4)] border border-white/10">
+                <Phone size={22} className="text-white animate-pulse" /> 
                 <span className="tracking-wide relative z-10">CALL NOW</span>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
               </a>
-              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="group bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-lg border border-white/20 backdrop-blur-md">
+              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="group glass-card-dark text-white px-9 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 hover:border-[#25D366]/50 hover:shadow-[0_0_25px_rgba(37,211,102,0.2)]">
                 <MessageSquare size={22} className="text-[#25D366]" /> 
-                <span className="tracking-wide">WHATSAPP US</span>
+                <span className="tracking-wide relative z-10">WHATSAPP US</span>
+                <div className="absolute inset-0 h-full w-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
               </a>
             </motion.div>
           </motion.div>
@@ -140,7 +144,9 @@ export default function Home() {
       </section>
 
       {/* 2. TRUST INDICATORS - ANIMATED MARQUEE */}
-      <section className="bg-[#0A2E6E] text-white py-8 relative z-30 -mt-10 mx-6 lg:mx-20 rounded-2xl shadow-2xl border border-white/5 overflow-hidden">
+      <section className="bg-gradient-to-r from-[#081C3A] via-[#0A2E6E] to-[#081C3A] text-white py-8 relative z-30 -mt-10 mx-6 lg:mx-20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 overflow-hidden">
+        {/* Subtle top reflection */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-12 animate-marquee whitespace-nowrap py-2">
             {[...Array(2)].map((_, arrayIndex) => (
@@ -174,7 +180,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] group"
+              className="relative rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] h-[550px] group border border-gray-200"
             >
               <motion.div style={{ y: useTransform(scrollY, [0, 2000], [0, 150]) }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
                 <Image
@@ -217,8 +223,9 @@ export default function Home() {
                 ))}
               </div>
 
-              <a href="#services" className="bg-[#081C3A] hover:bg-[#0A2E6E] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center w-fit gap-3 shadow-xl shadow-blue-900/20 active:scale-95">
-                Explore Our Work <ArrowRight size={18} />
+              <a href="#services" className="group relative overflow-hidden bg-[#081C3A] text-white px-9 py-4 rounded-lg font-bold transition-all flex items-center justify-center w-fit gap-3 shadow-[0_10px_20px_rgba(8,28,58,0.2)] hover:shadow-[0_15px_30px_rgba(8,28,58,0.3)] active:scale-95">
+                <span className="relative z-10 flex items-center gap-2">Explore Our Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
               </a>
             </motion.div>
           </div>
@@ -251,9 +258,10 @@ export default function Home() {
                 ].map((srv, idx) => (
                   <motion.div
                     key={idx} whileHover={{ y: -8 }}
-                    className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 group cursor-pointer"
+                    className="glass-card rounded-2xl p-6 transition-all duration-500 group cursor-pointer hover:border-[#FF6A00]/40 hover:shadow-[0_20px_40px_rgba(255,106,0,0.08)] relative overflow-hidden"
                   >
-                    <div className="h-40 bg-gray-100 rounded-xl mb-6 overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6A00]/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="h-40 bg-gray-100 rounded-xl mb-6 overflow-hidden relative border border-gray-100/50">
                       <Image src={srv.img} alt={srv.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
                     </div>
                     <h4 className="font-bold text-[#081C3A] text-xl mb-2">{srv.title}</h4>
@@ -283,9 +291,9 @@ export default function Home() {
                 ].map((prod, idx) => (
                   <motion.div
                     key={idx} whileHover={{ scale: 1.03 }}
-                    className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6A00] transition-colors cursor-pointer group shadow-sm hover:shadow-lg"
+                    className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6A00]/40 transition-all duration-500 cursor-pointer group hover:shadow-[0_15px_30px_rgba(255,106,0,0.06)]"
                   >
-                    <div className="w-20 h-20 relative mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-md">
+                    <div className="w-20 h-20 relative mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-md group-hover:scale-110 duration-500">
                       <Image src={prod.img} alt={prod.name} fill sizes="80px" className="object-cover rounded-xl" />
                     </div>
                     <h4 className="font-bold text-sm text-[#081C3A]">{prod.name}</h4>
@@ -333,12 +341,15 @@ export default function Home() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="group bg-white/[0.03] border border-white/5 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col h-full"
+                className="group bg-white/[0.02] border border-white/5 p-8 rounded-2xl hover:bg-white/[0.04] hover:border-[#FF6A00]/40 transition-all duration-500 cursor-pointer flex flex-col h-full hover:shadow-[0_10px_40px_rgba(255,106,0,0.05)] relative overflow-hidden"
               >
-                <div className="bg-[#FF6A00]/20 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-[#FF6A00] group-hover:scale-110 transition-transform">
+                {/* Razor thin ambient glow */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#FF6A00]/0 to-[#FF6A00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                <div className="bg-gradient-to-br from-[#FF6A00]/20 to-transparent w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-[#FF6A00] group-hover:scale-110 transition-transform duration-500 border border-[#FF6A00]/20">
                   <ind.icon size={32} strokeWidth={1.5} />
                 </div>
-                <h4 className="text-xl font-bold mb-3 tracking-wide">{ind.name}</h4>
+                <h4 className="text-xl font-bold mb-3 tracking-wide group-hover:text-[#FF6A00] transition-colors duration-300">{ind.name}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">{ind.desc}</p>
                 <div className="w-full h-[2px] bg-white/10 relative overflow-hidden rounded-full">
                   <div className="absolute inset-y-0 left-0 bg-[#FF6A00] w-0 group-hover:w-full transition-all duration-700 ease-out" />
@@ -369,10 +380,10 @@ export default function Home() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="flex gap-5 p-8 rounded-2xl hover:bg-[#F8FAFC] transition-colors border border-transparent hover:border-gray-100 group"
+                className="flex gap-5 p-8 rounded-2xl hover:bg-white transition-all duration-500 border border-transparent hover:border-gray-100 group hover:shadow-[0_15px_40px_rgba(0,0,0,0.04)] cursor-pointer"
               >
                 <div className="shrink-0 mt-1">
-                  <div className="bg-[#0A2E6E]/10 p-3 rounded-xl text-[#0A2E6E] group-hover:bg-[#0A2E6E] group-hover:text-white transition-colors">
+                  <div className="bg-[#0A2E6E]/5 p-3 rounded-xl text-[#0A2E6E] group-hover:bg-[#0A2E6E] group-hover:text-white transition-colors duration-500 group-hover:shadow-[0_10px_20px_rgba(10,46,110,0.2)]">
                     <Award size={28} strokeWidth={2} />
                   </div>
                 </div>
@@ -397,10 +408,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
             {/* Main Featured Real Image */}
             <motion.div
-              whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
-              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
+              whileHover={{ scale: 0.99 }} transition={{ duration: 0.4 }}
+              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group bg-black border border-gray-200/50"
             >
-              <Image src="/realpic.jpeg" alt="Our state-of-the-art workshop" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/realpic.jpeg" alt="Our state-of-the-art workshop" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-102 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A]/90 via-[#081C3A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
                 <span className="text-white font-bold text-3xl tracking-tight">Our State-of-the-Art Assembly Facility</span>
               </div>
@@ -454,9 +465,9 @@ export default function Home() {
               >
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-transparent outline-none"
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-transparent outline-none group"
                 >
-                  <span className={`font-bold text-lg pr-8 tracking-wide transition-colors ${openFaqIndex === i ? 'text-[#0A2E6E]' : 'text-[#081C3A]'}`}>
+                  <span className={`font-bold text-lg pr-8 tracking-wide transition-colors duration-300 ${openFaqIndex === i ? 'text-[#FF6A00]' : 'text-[#081C3A] group-hover:text-[#0A2E6E]'}`}>
                     {faq.q}
                   </span>
                   <div className={`shrink-0 p-2.5 rounded-full transition-all duration-300 ${openFaqIndex === i ? 'bg-[#0A2E6E] text-white rotate-180' : 'bg-white text-gray-400 shadow-sm border border-gray-100'}`}>
@@ -489,8 +500,8 @@ export default function Home() {
             <h3 className="text-4xl font-extrabold text-[#081C3A] tracking-tight">Find Us On The Map</h3>
           </div>
           
-          <div className="bg-white p-4 rounded-3xl shadow-xl shadow-blue-900/5 flex flex-col lg:flex-row gap-8 items-center border border-gray-100">
-            <div className="w-full lg:w-2/3 h-[400px] rounded-2xl overflow-hidden relative group">
+          <div className="glass-card p-4 rounded-3xl flex flex-col lg:flex-row gap-8 items-center transition-all duration-500 hover:shadow-[0_20px_50px_rgba(8,28,58,0.08)]">
+            <div className="w-full lg:w-2/3 h-[400px] rounded-2xl overflow-hidden relative group border border-gray-100/50">
               <iframe 
                 title="Bharat Hydraulics Location on Google Maps"
                 src="https://maps.google.com/maps?q=Bharat+Hydraulics,+Rajgangpur,+Odisha&t=&z=15&ie=UTF8&iwloc=&output=embed" 

@@ -99,21 +99,21 @@ export default function RootLayout({
         />
 
         {/* Top Information Bar */}
-        <div className="bg-[#081C3A] text-white/80 text-xs py-2 hidden md:block">
-          <div className="container mx-auto px-6 flex justify-between items-center">
-            <div className="flex gap-6">
-              <span className="flex items-center gap-2"><MapPin size={14} className="text-[#FF6A00]" /> Rajgangpur, Odisha</span>
-              <span className="flex items-center gap-2"><Mail size={14} className="text-[#FF6A00]" /> moshink0786@gmail.com</span>
-              <span className="flex items-center gap-2"><Clock size={14} className="text-[#FF6A00]" /> Mon - Sat: 8:30 AM - 7:00 PM</span>
+        <div className="bg-[#081C3A] text-white/80 text-xs py-2.5 hidden md:block border-b border-white/5">
+          <div className="container mx-auto px-6 flex justify-between items-center tracking-wide font-medium">
+            <div className="flex gap-8">
+              <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default"><MapPin size={14} className="text-[#FF6A00]" /> Rajgangpur, Odisha</span>
+              <span className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={14} className="text-[#FF6A00]" /> <a href="mailto:moshink0786@gmail.com">moshink0786@gmail.com</a></span>
+              <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default"><Clock size={14} className="text-[#FF6A00]" /> Mon - Sat: 8:30 AM - 7:00 PM</span>
             </div>
-            <div className="flex gap-5">
-              <Link href="#" className="hover:text-[#FF6A00] transition-colors" aria-label="Facebook">
+            <div className="flex gap-6">
+              <Link href="#" className="text-white/60 hover:text-[#FF6A00] transition-colors hover:scale-110 transform duration-300" aria-label="Facebook">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.61l.39-4H14V7a1 1 0 0 1 1-1h3z" /></svg>
               </Link>
-              <Link href="#" className="hover:text-[#FF6A00] transition-colors" aria-label="Instagram">
+              <Link href="#" className="text-white/60 hover:text-[#FF6A00] transition-colors hover:scale-110 transform duration-300" aria-label="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
               </Link>
-              <Link href="#" className="hover:text-[#FF6A00] transition-colors" aria-label="LinkedIn">
+              <Link href="#" className="text-white/60 hover:text-[#FF6A00] transition-colors hover:scale-110 transform duration-300" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
               </Link>
             </div>
@@ -125,11 +125,10 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
 
         {/* Premium Corporate Footer */}
-       {/* Premium Corporate Footer */}
-        <footer className="bg-[#081C3A] text-white pt-24 pb-8 relative overflow-hidden border-t border-white/5">
+        <footer className="bg-[#081C3A] text-white pt-24 pb-8 relative overflow-hidden border-t-2 border-[#FF6A00]/20">
           {/* Subtle Premium Background Glow */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6A00]/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0A2E6E]/30 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF6A00]/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none animate-pulse-slow" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0A2E6E]/30 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none animate-pulse-slow" style={{animationDelay: '2s'}} />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 xl:gap-12 border-b border-white/10 pb-16 mb-8">
@@ -222,12 +221,12 @@ export default function RootLayout({
             </div>
             
             {/* Bottom Copyright Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium">
+            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium pt-8">
               <p>&copy; {new Date().getFullYear()} Bharat Hydraulics. All Rights Reserved.</p>
-              <div className="mt-4 md:mt-0 flex gap-6">
-                <Link href="#" className="hover:text-[#FF6A00] transition-colors">Privacy Policy</Link>
-                <Link href="#" className="hover:text-[#FF6A00] transition-colors">Terms of Service</Link>
-                <Link href="#" className="hover:text-[#FF6A00] transition-colors">Sitemap</Link>
+              <div className="mt-4 md:mt-0 flex gap-8">
+                <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
               </div>
             </div>
           </div>
