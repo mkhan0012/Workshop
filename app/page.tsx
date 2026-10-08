@@ -123,6 +123,7 @@ export default function Home() {
               alt="Bharat Hydraulics Machinery"
               fill
               sizes="100vw"
+              quality={90}
               className="object-cover object-center"
               priority
             />
@@ -142,7 +143,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6A00] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6A00]"></span>
               </span>
-              <span className="text-white/90 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase">Welcome to Bharat Hydraulics</span>
+              <span className="text-white/90 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase">Odisha's Premier Hydraulic Experts</span>
             </motion.div>
 
             {/* Cinematic Mask Reveal for Headline */}
@@ -152,7 +153,7 @@ export default function Home() {
                 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter"
               >
                 <span className="text-white drop-shadow-lg">POWERING</span><br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] filter drop-shadow-[0_0_15px_rgba(255,106,0,0.3)]">HEAVY INDUSTRY</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] filter drop-shadow-[0_0_15px_rgba(255,106,0,0.3)]">ODISHA'S INDUSTRIES</span>
               </motion.h1>
             </div>
             
@@ -161,7 +162,7 @@ export default function Home() {
                 initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
                 className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed"
               >
-                We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
+                Located in the heart of Rajgangpur, Bharat Hydraulics delivers top-tier hydraulic hoses, heavy-duty fittings, and 24/7 on-site support. Experience unmatched reliability designed specifically for Odisha's most extreme industrial environments.
               </motion.p>
             </div>
 
@@ -230,6 +231,7 @@ export default function Home() {
                   src="/warehouse.png"
                   alt="Workshop capabilities"
                   fill
+                  quality={85}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-left group-hover:scale-105 transition-transform duration-700"
                 />
@@ -249,7 +251,7 @@ export default function Home() {
                 Your Trusted Hydraulic Repair Shop
               </h3>
               <p className="text-gray-600 mb-10 leading-relaxed text-lg font-light">
-                If you are constantly searching for a reliable <strong>hydraulic repair shop near me</strong> or need immediate <strong>hydraulic hose repair near me</strong>, Bharat Hydraulics is your ultimate destination. With over 6 years of dedicated industrial experience, we have established ourselves as the top <strong>hydraulic repair shop</strong> in the region for high-pressure fluid solutions. Whether you need a custom Rajgangpur hydraulics hose, heavy-duty fittings, or emergency on-site troubleshooting, our expert technicians are ready to minimize your downtime using premium OEM parts.
+                If you are constantly searching for a reliable <strong>hydraulic repair shop near me</strong> or need immediate <strong>hydraulic hose repair near me</strong>, Bharat Hydraulics is your ultimate destination. Located in the industrial hub of <strong>Rajgangpur, Odisha</strong>, we have established ourselves over the last 6+ years as the premier <strong>hydraulic repair shop</strong> across Sundargarh and surrounding districts for high-pressure fluid solutions. Whether you need a custom <strong>Rajgangpur hydraulics hose</strong>, heavy-duty industrial fittings, or emergency on-site troubleshooting anywhere in Odisha, our expert technicians are ready to minimize your downtime using premium OEM parts.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -307,7 +309,7 @@ export default function Home() {
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6A00]/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="h-40 bg-gray-100 rounded-xl mb-6 overflow-hidden relative border border-gray-100/50">
-                      <Image src={srv.img} alt={srv.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
+                      <Image src={srv.img} alt={srv.title} fill quality={75} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
                     </div>
                     <h4 className="font-bold text-[#081C3A] text-xl mb-2">{srv.title}</h4>
                     <p className="text-gray-500 text-sm leading-relaxed">{srv.desc}</p>
@@ -339,7 +341,7 @@ export default function Home() {
                     className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6A00]/40 transition-all duration-500 cursor-pointer group hover:shadow-[0_15px_30px_rgba(255,106,0,0.06)]"
                   >
                     <div className="w-20 h-20 relative mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-md group-hover:scale-110 duration-500">
-                      <Image src={prod.img} alt={prod.name} fill sizes="80px" className="object-cover rounded-xl" />
+                      <Image src={prod.img} alt={prod.name} fill quality={60} sizes="80px" className="object-cover rounded-xl" />
                     </div>
                     <h4 className="font-bold text-sm text-[#081C3A]">{prod.name}</h4>
                   </motion.div>

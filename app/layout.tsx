@@ -9,13 +9,13 @@ import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Bharat Hydraulics | Hydraulic Repair Shop & Hose Repair Near Me",
-  description: "Top-rated hydraulic repair shop near me in Rajgangpur, Odisha. We specialize in hydraulic hose repair near me, custom assemblies, high-pressure fittings, and 24/7 on-site hydraulic troubleshooting.",
-  keywords: "hydraulic repair shop near me, hydraulic repair shop, hydraulic hose repair near me, hydraulic hose repair, hydraulic hose making near me, hydraulic cylinder repair near me, emergency hydraulic hose repair, 24 hour hydraulic hose repair, mobile hydraulic hose repair, custom hydraulic hose maker, heavy duty hose repair, industrial hose repair shop, excavator hose repair, JCB hose repair near me, high pressure hose repair, tractor hose repair, crane hydraulic hose repair, hydraulic pipe repair, hydraulic hose crimping near me, hydraulic hose replacement near me, broken hydraulic hose fix, rajgangpur hydraulics hose, bharat hydraulic hose, bharat hydraulics, Hydraulic Hose Repair Rajgangpur, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, Emergency hydraulic service",
+  title: "Bharat Hydraulics | #1 Hydraulic Repair Shop in Rajgangpur, Odisha",
+  description: "Odisha's premier hydraulic repair shop located in Rajgangpur. We specialize in 24/7 hydraulic hose repair, custom assemblies, heavy-duty fittings, and emergency on-site troubleshooting across Sundargarh and Odisha.",
+  keywords: "hydraulic repair shop near me, hydraulic repair shop Rajgangpur, hydraulic hose repair near me, hydraulic hose repair Odisha, hydraulic hose making Rajgangpur, hydraulic cylinder repair Sundargarh, emergency hydraulic hose repair Odisha, 24 hour hydraulic hose repair, mobile hydraulic hose repair, custom hydraulic hose maker, heavy duty hose repair Odisha, industrial hose repair shop Rajgangpur, excavator hose repair, JCB hose repair near me, high pressure hose repair, tractor hose repair, crane hydraulic hose repair, hydraulic pipe repair, hydraulic hose crimping near me, hydraulic hose replacement near me, broken hydraulic hose fix, rajgangpur hydraulics hose, bharat hydraulic hose, bharat hydraulics, Hydraulic Hose Repair Rajgangpur, Hydraulic Fittings near me, Bharat Hydraulics Rajgangpur, Custom Hose Assembly Odisha, Industrial Hoses Sundargarh, Emergency hydraulic service Odisha, hydraulic shop in Odisha, best hydraulic repair in Rajgangpur",
   openGraph: {
-    title: "Bharat Hydraulics | Hydraulic Repair Shop & Hose Repair Near Me",
-    description: "Your trusted partner for custom Bharat hydraulic hose, fittings, and 24/7 emergency troubleshooting. The best hydraulic repair shop near me in Rajgangpur and Sundargarh.",
-    siteName: "Bharat Hydraulics",
+    title: "Bharat Hydraulics | #1 Hydraulic Repair Shop in Rajgangpur, Odisha",
+    description: "Odisha's trusted partner for custom Bharat hydraulic hose, fittings, and 24/7 emergency troubleshooting. The best hydraulic repair shop in Rajgangpur and Sundargarh.",
+    siteName: "Bharat Hydraulics Rajgangpur",
     locale: "en_IN",
     type: "website",
   },
@@ -42,7 +42,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "AutoPartsStore", "HardwareStore"],
   "name": "Bharat Hydraulics",
-  "description": "The best hydraulic repair shop near me. We are the top-rated hydraulic hose repair and custom fitting service in Rajgangpur, Odisha. When searching for a hydraulic shop near me, Bharat Hydraulics is your ultimate destination for 24/7 on-site emergency repairs.",
+  "description": "Odisha's top-rated hydraulic repair shop in Rajgangpur. We offer premium hydraulic hose repair, custom fitting services, and 24/7 on-site emergency repairs across Sundargarh and Odisha.",
   "image": "https://bharathydraulics.in/logo2.png",
   "url": "https://bharathydraulics.in",
   "telephone": "+919178330536",

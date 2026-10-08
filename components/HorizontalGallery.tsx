@@ -42,6 +42,7 @@ export default function HorizontalGallery() {
                   src={card.url} 
                   alt={card.title} 
                   fill 
+                  quality={80}
                   sizes="(max-width: 768px) 100vw, 50vw" 
                   className="object-cover object-center opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]" 
                />
