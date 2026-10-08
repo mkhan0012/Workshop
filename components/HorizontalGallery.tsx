@@ -40,7 +40,7 @@ export default function HorizontalGallery() {
             >
                <Image 
                   src={card.url} 
-                  alt={card.title} 
+                  alt={`${card.title} - Bharat Hydraulics state of the art facility in Rajgangpur, Odisha`} 
                   fill 
                   quality={80}
                   sizes="(max-width: 768px) 100vw, 50vw" 

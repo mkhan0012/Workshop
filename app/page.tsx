@@ -120,7 +120,7 @@ export default function Home() {
           >
             <Image
               src="/hero.png"
-              alt="Bharat Hydraulics Machinery"
+              alt="Heavy duty industrial hydraulic hose and machinery powering Odisha's infrastructure at Bharat Hydraulics"
               fill
               sizes="100vw"
               quality={90}
@@ -229,7 +229,7 @@ export default function Home() {
               <motion.div style={{ y: useTransform(scrollY, [0, 2000], [0, 150]) }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
                 <Image
                   src="/warehouse.png"
-                  alt="Workshop capabilities"
+                  alt="State-of-the-art 24/7 hydraulic repair and custom hose crimping workshop in Rajgangpur, Odisha"
                   fill
                   quality={85}
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -309,7 +309,7 @@ export default function Home() {
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6A00]/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="h-40 bg-gray-100 rounded-xl mb-6 overflow-hidden relative border border-gray-100/50">
-                      <Image src={srv.img} alt={srv.title} fill quality={75} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
+                      <Image src={srv.img} alt={`${srv.title} - Professional hydraulic repair services in Odisha`} fill quality={75} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" />
                     </div>
                     <h4 className="font-bold text-[#081C3A] text-xl mb-2">{srv.title}</h4>
                     <p className="text-gray-500 text-sm leading-relaxed">{srv.desc}</p>
@@ -341,7 +341,7 @@ export default function Home() {
                     className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6A00]/40 transition-all duration-500 cursor-pointer group hover:shadow-[0_15px_30px_rgba(255,106,0,0.06)]"
                   >
                     <div className="w-20 h-20 relative mb-4 opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-md group-hover:scale-110 duration-500">
-                      <Image src={prod.img} alt={prod.name} fill quality={60} sizes="80px" className="object-cover rounded-xl" />
+                      <Image src={prod.img} alt={`${prod.name} and premium hydraulic spares for heavy industry in Rajgangpur`} fill quality={60} sizes="80px" className="object-cover rounded-xl" />
                     </div>
                     <h4 className="font-bold text-sm text-[#081C3A]">{prod.name}</h4>
                   </motion.div>

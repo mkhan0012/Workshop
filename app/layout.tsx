@@ -233,8 +233,27 @@ export default function RootLayout({
                 </div>
               </div>
               
+              {/* Local Citations & Directories (Backlinks / Trust Signals) */}
+              <div className="border-t border-white/10 pt-8 pb-4 mb-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 font-medium">
+                <span className="mb-4 md:mb-0">Verified Business Listings:</span>
+                <div className="flex flex-wrap gap-6 items-center justify-center">
+                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                    <span className="w-2 h-2 rounded-full bg-green-500"></span> Google My Business
+                  </a>
+                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span> JustDial Rajgangpur
+                  </a>
+                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span> IndiaMart
+                  </a>
+                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                    <span className="w-2 h-2 rounded-full bg-yellow-500"></span> TradeIndia
+                  </a>
+                </div>
+              </div>
+
               {/* Bottom Copyright Bar */}
-              <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium pt-4 border-t border-white/10">
                 <p>&copy; {new Date().getFullYear()} Bharat Hydraulics. All Rights Reserved.</p>
                 <div className="mt-4 md:mt-0 flex gap-8">
                   <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
