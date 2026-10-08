@@ -4,8 +4,12 @@ import Link from "next/link";
 import { ShieldCheck, MapPin, Factory, ArrowRight, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Top Hydraulic Repair & Spares in Sundargarh District | Bharat Hydraulics",
-  description: "Bharat Hydraulics is the leading hydraulic repair shop serving Sundargarh, Rourkela, and Jharsuguda. 24/7 on-site support, custom hoses, and heavy-duty spares.",
+  metadataBase: new URL("https://bharathydraulics.in"),
+  alternates: {
+    canonical: "/locations/sundargarh",
+  },
+  title: "Top Hydraulic Repair in Sundargarh | Bharat Hydraulics",
+  description: "Leading hydraulic repair shop serving Sundargarh, Rourkela, and Jharsuguda. Offering 24/7 on-site support, custom hoses, and heavy-duty spares.",
   keywords: "hydraulic repair Sundargarh, hydraulic shop Rourkela, hydraulic hose Jharsuguda, heavy equipment repair Sundargarh, mining hydraulic service Odisha, Bharat Hydraulics Sundargarh",
 };
 

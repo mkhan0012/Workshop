@@ -4,8 +4,12 @@ import Link from "next/link";
 import { ShieldCheck, Wrench, Clock, ArrowRight, Phone, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hydraulic Hose Repair Service in Rajgangpur & Sundargarh | Bharat Hydraulics",
-  description: "Expert 24/7 hydraulic hose repair, crimping, and custom assembly in Rajgangpur and Sundargarh. We use premium OEM parts for heavy machinery, JCB, excavators, and cranes.",
+  metadataBase: new URL("https://bharathydraulics.in"),
+  alternates: {
+    canonical: "/services/hydraulic-hose-repair",
+  },
+  title: "Hydraulic Hose Repair in Rajgangpur | Bharat Hydraulics",
+  description: "Expert 24/7 hydraulic hose repair, crimping, and custom assembly in Rajgangpur and Sundargarh. Premium OEM parts for heavy machinery, JCB, and cranes.",
   keywords: "hydraulic hose repair, hose crimping Rajgangpur, custom hose assembly Odisha, heavy duty hose fix, emergency hose repair Sundargarh, JCB hose repair near me, excavator hose replacement",
 };
 
