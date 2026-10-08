@@ -56,7 +56,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center cursor-pointer group">
             <div className="relative w-[150px] h-[45px] md:w-[260px] md:h-[100px] lg:w-[280px] lg:h-[80px]">
               <Image
-                src="/logo2.png"
+                src="/logo2.webp"
                 alt="Bharat Hydraulics Logo"
                 fill
                 sizes="(max-width: 768px) 150px, (max-width: 1024px) 260px, 280px"

@@ -119,7 +119,7 @@ export default function Home() {
             className="w-full h-full relative"
           >
             <Image
-              src="/hero.png"
+              src="/hero.webp"
               alt="Heavy duty industrial hydraulic hose and machinery powering Odisha's infrastructure at Bharat Hydraulics"
               fill
               sizes="100vw"
@@ -228,7 +228,7 @@ export default function Home() {
             >
               <motion.div style={{ y: useTransform(scrollY, [0, 2000], [0, 150]) }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
                 <Image
-                  src="/warehouse.png"
+                  src="/warehouse.webp"
                   alt="State-of-the-art 24/7 hydraulic repair and custom hose crimping workshop in Rajgangpur, Odisha"
                   fill
                   quality={85}
@@ -298,10 +298,10 @@ export default function Home() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { title: "Hose Assembly", desc: "Custom high-pressure assemblies as per exact OEM specs.", img: "/Hose.png" },
-                  { title: "Hydraulic Fittings", desc: "Wide range of leak-proof high-pressure adaptors.", img: "/hosecomponent.png" },
-                  { title: "Industrial Hoses", desc: "Special purpose heavy-duty fluid transfer hoses.", img: "/otherpic2.png" },
-                  { title: "On-Site Service", desc: "Emergency field replacement & technical support.", img: "/truck.png" }
+                  { title: "Hose Assembly", desc: "Custom high-pressure assemblies as per exact OEM specs.", img: "/Hose.webp" },
+                  { title: "Hydraulic Fittings", desc: "Wide range of leak-proof high-pressure adaptors.", img: "/hosecomponent.webp" },
+                  { title: "Industrial Hoses", desc: "Special purpose heavy-duty fluid transfer hoses.", img: "/otherpic2.webp" },
+                  { title: "On-Site Service", desc: "Emergency field replacement & technical support.", img: "/truck.webp" }
                 ].map((srv, idx) => (
                   <motion.div
                     key={idx} whileHover={{ y: -8 }}
@@ -329,12 +329,12 @@ export default function Home() {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                 {[
-                  { name: "Hydraulic Hoses", img: "/Hose.png" },
-                  { name: "Hose Fittings", img: "/hosecomponent.png" },
-                  { name: "Adapters", img: "/otherpic.png" },
-                  { name: "Quick Couplings", img: "/otherpic3.png" },
-                  { name: "Flanges", img: "/otherpic2.png" },
-                  { name: "Accessories", img: "/hosecomponent.png" }
+                  { name: "Hydraulic Hoses", img: "/Hose.webp" },
+                  { name: "Hose Fittings", img: "/hosecomponent.webp" },
+                  { name: "Adapters", img: "/otherpic.webp" },
+                  { name: "Quick Couplings", img: "/otherpic3.webp" },
+                  { name: "Flanges", img: "/otherpic2.webp" },
+                  { name: "Accessories", img: "/hosecomponent.webp" }
                 ].map((prod, idx) => (
                   <motion.div
                     key={idx} whileHover={{ scale: 1.03 }}
@@ -538,7 +538,7 @@ export default function Home() {
 
       {/* 10. CTA SECTION */}
       <section className="py-24 relative overflow-hidden bg-[#FF6A00]">
-        <div className="absolute inset-0 bg-[url('/hero.png')] bg-cover bg-center mix-blend-overlay opacity-10" />
+        <div className="absolute inset-0 bg-[url('/hero.webp')] bg-cover bg-center mix-blend-overlay opacity-10" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Need Immediate Hydraulic Support?</h2>
           <p className="text-white/90 text-xl mb-12 max-w-2xl mx-auto font-medium leading-relaxed">

@@ -11,7 +11,7 @@ export default function NotFound() {
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="mb-8">
-          <Image src="/logo2.png" alt="Bharat Hydraulics Logo" width={240} height={80} className="object-contain" />
+          <Image src="/logo2.webp" alt="Bharat Hydraulics Logo" width={240} height={80} className="object-contain" />
         </div>
         
         <div className="bg-white/5 border border-white/10 p-6 rounded-full mb-8">

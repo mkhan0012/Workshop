@@ -66,7 +66,7 @@ export default function HydraulicHoseRepairPage() {
 
           <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
             <Image 
-              src="/Hose.png" 
+              src="/Hose.webp" 
               alt="Custom high pressure hydraulic hose assembly and repair process in Odisha"
               fill
               quality={85}

@@ -5,11 +5,11 @@ import { useRef } from "react";
 import Image from "next/image";
 
 const cards = [
-  { url: "/realpic.jpeg", title: "State-of-the-Art Assembly Facility", id: 1 },
-  { url: "/realpic2.jpeg", title: "Live Operations & Machinery", id: 2 },
-  { url: "/Hose.png", title: "Custom Hydraulic Hoses", id: 3 },
-  { url: "/hosecomponent.png", title: "Precision Fittings", id: 4 },
-  { url: "/otherpic.png", title: "Heavy Duty Adapters", id: 5 },
+  { url: "/realpic.webp", title: "State-of-the-Art Assembly Facility", id: 1 },
+  { url: "/realpic2.webp", title: "Live Operations & Machinery", id: 2 },
+  { url: "/Hose.webp", title: "Custom Hydraulic Hoses", id: 3 },
+  { url: "/hosecomponent.webp", title: "Precision Fittings", id: 4 },
+  { url: "/otherpic.webp", title: "Heavy Duty Adapters", id: 5 },
 ];
 
 export default function HorizontalGallery() {

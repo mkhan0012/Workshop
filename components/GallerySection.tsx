@@ -19,7 +19,7 @@ export function GallerySection() {
                         className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-sm cursor-zoom-in group bg-black"
                     >
                         <Image
-                            src="/Components Pic.png"
+                            src="/components.webp"
                             alt="Workshop overview"
                             fill
                             className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700"
@@ -34,7 +34,7 @@ export function GallerySection() {
                         className="relative rounded-3xl overflow-hidden shadow-sm cursor-zoom-in group bg-black"
                     >
                         <Image
-                            src="/HeroPIC.png"
+                            src="/hero.webp"
                             alt="Heavy Machinery"
                             fill
                             className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700"

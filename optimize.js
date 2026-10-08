@@ -4,45 +4,40 @@ const path = require('path');
 
 const publicDir = path.join(__dirname, 'public');
 
-async function optimizeImage(filename, width, options = {}) {
+async function convertToWebp(filename, width) {
   const filePath = path.join(publicDir, filename);
   if (!fs.existsSync(filePath)) {
     console.log(`File not found: ${filename}`);
     return;
   }
   
-  const tempPath = path.join(publicDir, `temp_${filename}`);
+  const ext = path.extname(filename);
+  const basename = path.basename(filename, ext);
+  const newFilename = `${basename}.webp`;
+  const newFilePath = path.join(publicDir, newFilename);
   
   try {
-    let pipeline = sharp(filePath).resize(width);
+    let pipeline = sharp(filePath).resize(width).webp({ quality: 80 });
+    await pipeline.toFile(newFilePath);
     
-    // Depending on extension, compress
-    if (filename.endsWith('.png')) {
-      pipeline = pipeline.png({ quality: 80, compressionLevel: 8 });
-    } else if (filename.endsWith('.jpg') || filename.endsWith('.jpeg')) {
-      pipeline = pipeline.jpeg({ quality: 80 });
-    }
-    
-    await pipeline.toFile(tempPath);
-    
-    // Replace original
-    fs.renameSync(tempPath, filePath);
-    console.log(`Optimized ${filename}`);
+    console.log(`Converted and optimized ${filename} to ${newFilename}`);
   } catch (err) {
-    console.error(`Error optimizing ${filename}:`, err);
-    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    console.error(`Error processing ${filename}:`, err);
   }
 }
 
 async function run() {
-  await optimizeImage('hero.png', 1920);
-  await optimizeImage('logo2.png', 800);
-  await optimizeImage('logo.png', 800);
-  await optimizeImage('components.png', 1200);
-  await optimizeImage('warehouse.png', 1200);
-  await optimizeImage('truck.png', 1200);
-  await optimizeImage('Machinery.png', 1200);
-  await optimizeImage('car.png', 1200);
+  const files = fs.readdirSync(publicDir);
+  for (const file of files) {
+    if (file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.jpeg')) {
+      let width = 1200; // default
+      if (file === 'hero.png') width = 1920;
+      else if (file.startsWith('logo')) width = 400; // better sizing for logo
+      else if (['Hose.png', 'hosecomponent.png', 'otherpic.png', 'otherpic2.png', 'otherpic3.png'].includes(file)) width = 800; // properly size components
+      
+      await convertToWebp(file, width);
+    }
+  }
 }
 
 run();

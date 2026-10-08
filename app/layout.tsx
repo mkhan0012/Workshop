@@ -1,6 +1,10 @@
 // app/layout.tsx
 import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
 import { MapPin, Mail, Clock, Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,7 +13,7 @@ import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bharathydraulics.in"),
+  metadataBase: new URL("https://www.bharathydraulics.site"),
   alternates: {
     canonical: "/",
   },
@@ -47,8 +51,8 @@ const jsonLd = {
   "@type": ["LocalBusiness", "AutoPartsStore", "HardwareStore"],
   "name": "Bharat Hydraulics",
   "description": "Odisha's top-rated hydraulic repair shop in Rajgangpur. We offer premium hydraulic hose repair, custom fitting services, and 24/7 on-site emergency repairs across Sundargarh and Odisha.",
-  "image": "https://bharathydraulics.in/logo2.png",
-  "url": "https://bharathydraulics.in",
+  "image": "https://www.bharathydraulics.site/logo2.webp",
+  "url": "https://www.bharathydraulics.site",
   "telephone": "+919178330536",
   "priceRange": "$$",
   "address": {
@@ -93,7 +97,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased flex flex-col min-h-screen bg-[var(--color-background)]">
+      <body className={`antialiased flex flex-col min-h-screen bg-[var(--color-background)] ${inter.variable} ${outfit.variable} font-sans`}>
         <SmoothScroll>
           {/* Google Analytics */}
           <Script
@@ -155,7 +159,7 @@ export default function RootLayout({
                   {/* Optimized Footer Logo Wrapper */}
                   <Link href="/" className="inline-block mb-8 relative w-[200px] h-[55px] group">
                     <Image 
-                      src="/logo2.png" 
+                      src="/logo2.webp" 
                       alt="Bharat Hydraulics Logo" 
                       fill
                       sizes="200px"
