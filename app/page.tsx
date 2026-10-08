@@ -8,11 +8,16 @@ import {
   Pickaxe, Zap, Ship, Tractor, HardHat, Plus, Minus, MapPin
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Magnetic from "@/components/Magnetic";
+import HorizontalGallery from "@/components/HorizontalGallery";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
 };
 
 const staggerContainer: Variants = {
@@ -52,10 +57,35 @@ export default function Home() {
   const heroY = useTransform(scrollY, [0, 1000], [0, 250]);
 
   const faqs = [
+    { q: "What is the best hydraulic shop near me?", a: "Bharat Hydraulics is widely recognized as the top-rated hydraulic repair shop near you in Rajgangpur, Odisha. We provide 24/7 on-site emergency repairs, custom high-pressure hose assemblies, and expert hydraulic troubleshooting." },
     { q: "Do you provide emergency on-site hydraulic repairs?", a: "Yes, we offer 24/7 emergency on-site troubleshooting and replacement services to minimize your operational downtime. Our rapid-response teams are equipped with fully stocked service vans." },
     { q: "Can you manufacture custom high-pressure hoses?", a: "Absolutely. We specialize in fabricating custom hydraulic hoses tailored precisely to your machinery's pressure, temperature, and fluid requirements using state-of-the-art crimping technology." },
     { q: "Are your hydraulic components ISO certified?", a: "Yes, all our raw materials, fittings, and finished assemblies comply with stringent ISO and DIN international standards, guaranteeing maximum safety and performance." }
   ];
+
+  // Generate FAQ Schema for AI and Google Rich Snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best hydraulic shop near me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bharat Hydraulics is widely recognized as the top-rated hydraulic repair shop near you in Rajgangpur, Odisha. We provide 24/7 on-site emergency repairs, custom high-pressure hose assemblies, and expert hydraulic troubleshooting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide emergency on-site hydraulic repairs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we offer 24/7 emergency on-site troubleshooting and replacement services to minimize your operational downtime. Our rapid-response teams are equipped with fully stocked service vans."
+        }
+      }
+    ]
+  };
 
   const industries = [
     { name: "Mining & Excavation", icon: Pickaxe, desc: "High-pressure hoses and robust fittings for heavy-duty earthmoving equipment." },
@@ -68,6 +98,10 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[100vh] md:min-h-[85vh] w-full flex flex-col justify-center pt-32 pb-32 lg:pt-40 lg:pb-36 bg-[#081C3A] overflow-hidden">
         {/* Animated Premium Glowing Orbs */}
@@ -111,33 +145,42 @@ export default function Home() {
               <span className="text-white/90 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase">Welcome to Bharat Hydraulics</span>
             </motion.div>
 
-            <motion.div variants={fadeUp}>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-4 tracking-tighter drop-shadow-2xl">
-                BHARAT <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] drop-shadow-lg">
-                  HYDRAULICS
-                </span>
-              </h1>
-              <h2 className="text-2xl md:text-4xl font-light text-white/90 mb-8 tracking-wide">
-                PREMIUM RAJGANGPUR <span className="font-bold text-white">HOSE</span>
-              </h2>
-            </motion.div>
+            {/* Cinematic Mask Reveal for Headline */}
+            <div className="overflow-hidden mb-8">
+              <motion.h1 
+                initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+                className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter"
+              >
+                <span className="text-white drop-shadow-lg">POWERING</span><br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] filter drop-shadow-[0_0_15px_rgba(255,106,0,0.3)]">HEAVY INDUSTRY</span>
+              </motion.h1>
+            </div>
+            
+            <div className="overflow-hidden">
+              <motion.p 
+                initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
+                className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed"
+              >
+                We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
+              </motion.p>
+            </div>
 
-            <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-300/95 mb-10 max-w-2xl leading-relaxed font-light backdrop-blur-sm bg-black/10 p-5 md:-ml-5 border-l-2 border-[#FF6A00] rounded-r-2xl shadow-xl">
-              We provide the highest quality Bharat hydraulic hose, fittings, and assemblies for all industrial applications. Experience the best Rajgangpur hydraulics hose solutions engineered for extreme environments.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-5">
-              <a href="tel:+919178330536" className="group relative overflow-hidden bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] text-white px-9 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 shadow-[0_0_30px_rgba(255,106,0,0.4)] border border-white/10">
-                <Phone size={22} className="text-white animate-pulse" /> 
-                <span className="tracking-wide relative z-10">CALL NOW</span>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-              </a>
-              <a href="https://wa.me/919178330536" target="_blank" rel="noopener noreferrer" className="group glass-card-dark text-white px-9 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:-translate-y-1 hover:border-[#25D366]/50 hover:shadow-[0_0_25px_rgba(37,211,102,0.2)]">
-                <MessageSquare size={22} className="text-[#25D366]" /> 
-                <span className="tracking-wide relative z-10">WHATSAPP US</span>
-                <div className="absolute inset-0 h-full w-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-              </a>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-5"
+            >
+              <Magnetic strength={0.4}>
+                <a href="tel:+919178330536" className="group relative overflow-hidden bg-[#FF6A00] text-white px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,106,0,0.4)] hover:shadow-[0_0_50px_rgba(255,106,0,0.6)] active:scale-95">
+                  <span className="relative z-10 flex items-center gap-2">CALL NOW <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+                  <div className="absolute inset-0 h-full w-full bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] skew-x-12" />
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.4}>
+                <a href="#services" className="group relative overflow-hidden bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center justify-center gap-3 backdrop-blur-sm active:scale-95">
+                  <span className="relative z-10">OUR SERVICES</span>
+                  <div className="absolute inset-0 h-full w-full bg-white scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] mix-blend-difference" />
+                </a>
+              </Magnetic>
             </motion.div>
           </motion.div>
         </div>
@@ -223,10 +266,12 @@ export default function Home() {
                 ))}
               </div>
 
-              <a href="#services" className="group relative overflow-hidden bg-[#081C3A] text-white px-9 py-4 rounded-lg font-bold transition-all flex items-center justify-center w-fit gap-3 shadow-[0_10px_20px_rgba(8,28,58,0.2)] hover:shadow-[0_15px_30px_rgba(8,28,58,0.3)] active:scale-95">
-                <span className="relative z-10 flex items-center gap-2">Explore Our Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-              </a>
+              <Magnetic strength={0.3}>
+                <a href="#services" className="group relative overflow-hidden bg-[#081C3A] text-white px-9 py-4 rounded-lg font-bold transition-all flex items-center justify-center w-fit gap-3 shadow-[0_10px_20px_rgba(8,28,58,0.2)] hover:shadow-[0_15px_30px_rgba(8,28,58,0.3)] active:scale-95">
+                  <span className="relative z-10 flex items-center gap-2">Explore Our Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
+                  <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                </a>
+              </Magnetic>
             </motion.div>
           </div>
         </div>
@@ -397,57 +442,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. GALLERY SECTION */}
-      <section id="gallery" className="py-32 bg-[#F8FAFC]">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-3">Our Facility & Work</h2>
-            <h3 className="text-4xl font-extrabold text-[#081C3A] tracking-tight">Engineered For Excellence</h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
-            {/* Main Featured Real Image */}
-            <motion.div
-              whileHover={{ scale: 0.99 }} transition={{ duration: 0.4 }}
-              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group bg-black border border-gray-200/50"
-            >
-              <Image src="/realpic.jpeg" alt="Our state-of-the-art workshop" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-102 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081C3A]/90 via-[#081C3A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
-                <span className="text-white font-bold text-3xl tracking-tight">Our State-of-the-Art Assembly Facility</span>
-              </div>
-            </motion.div>
-
-            {/* Wide Real Image */}
-            <motion.div
-              whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
-              className="md:col-span-2 md:row-span-1 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
-            >
-              <Image src="/realpic2.jpeg" alt="On-site machinery and stock" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                <span className="text-white text-xs font-bold tracking-widest uppercase">Live Operations</span>
-              </div>
-            </motion.div>
-
-            {/* Stats Block */}
-            <motion.div className="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#0A2E6E] to-[#081C3A] flex items-center justify-center p-8 text-center border border-white/10">
-              <div className="space-y-3">
-                <div className="text-[#FF6A00] text-6xl font-black tracking-tighter"><AnimatedCounter from={0} to={10000} />+</div>
-                <div className="text-white/90 text-xs font-bold tracking-widest uppercase">Parts in Inventory</div>
-              </div>
-            </motion.div>
-
-            {/* Heavy Machinery Accent */}
-            <motion.div
-              whileHover={{ scale: 0.98 }} transition={{ duration: 0.4 }}
-              className="md:col-span-1 md:row-span-1 relative rounded-3xl overflow-hidden shadow-xl group bg-black"
-            >
-              <Image src="/Machinery.png" alt="Heavy Machinery" fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* 7. GALLERY SECTION (Replaced with Cinematic Horizontal Scroll) */}
+      <HorizontalGallery />
 
       {/* 8. FAQ SECTION */}
       <section className="py-32 bg-white">
