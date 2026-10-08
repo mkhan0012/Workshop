@@ -1,0 +1,19 @@
+# Bharat Hydraulics
+
+> Top-rated hydraulic repair shop in Rajgangpur, Odisha specializing in custom assemblies, high-pressure fittings, and 24/7 on-site hydraulic troubleshooting.
+
+Welcome to the `llms.txt` file for Bharat Hydraulics. This file provides AI language models and crawlers with a brief overview of our services and content structure.
+
+## About Us
+Bharat Hydraulics is your trusted partner for custom hydraulic hose assemblies, fittings, and emergency troubleshooting. We are the best hydraulic repair shop near Rajgangpur and Sundargarh.
+
+## Core Services
+- Hydraulic Hose Repair & Replacement
+- Custom Hose Assemblies
+- High-Pressure Fittings
+- 24/7 On-Site Hydraulic Troubleshooting
+- Emergency Hydraulic Service (Excavators, JCBs, Tractors, Cranes, etc.)
+
+## Quick Links
+- **Website**: [https://bharathydraulics.in](https://bharathydraulics.in)
+- **Sitemap**: [https://bharathydraulics.in/sitemap.xml](https://bharathydraulics.in/sitemap.xml)
