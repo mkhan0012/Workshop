@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Mail } from "lucide-react";
+import { Phone, Menu, X, Mail, PhoneCall } from "lucide-react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
+import Magnetic from "./Magnetic";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -89,13 +90,15 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-5">
-            <button 
-              onClick={() => setIsQuotePopupOpen(true)}
-              className="relative overflow-hidden bg-transparent border-2 border-[#0A2E6E] text-[#0A2E6E] px-6 py-2.5 rounded-md font-bold transition-all group hover:text-white hover:border-[#0A2E6E]"
-            >
-              <span className="relative z-10">Request Quote</span>
-              <div className="absolute inset-0 h-full w-full bg-[#0A2E6E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
-            </button>
+            <Magnetic strength={0.2}>
+              <button 
+                onClick={() => setIsQuotePopupOpen(true)}
+                className="relative overflow-hidden bg-transparent border-2 border-[#0A2E6E] text-[#0A2E6E] px-6 py-2.5 rounded-md font-bold transition-all group hover:text-white hover:border-[#0A2E6E]"
+              >
+                <span className="relative z-10">Request Quote</span>
+                <div className="absolute inset-0 h-full w-full bg-[#0A2E6E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
+              </button>
+            </Magnetic>
             <button className="bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-7 py-3 rounded-md flex items-center gap-2 font-bold transition-all transform hover:-translate-y-0.5 shadow-[0_5px_15px_rgba(10,46,110,0.3)] hover:shadow-[0_8px_25px_rgba(10,46,110,0.4)] active:scale-95 border border-white/10">
               <Phone size={18} className="animate-pulse" />
               <span className="tracking-wide">+91 91783 30536</span>
