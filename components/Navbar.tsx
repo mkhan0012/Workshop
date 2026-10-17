@@ -71,20 +71,20 @@ export default function Navbar() {
               <span>HOME</span>
               <span className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-[#FF6A00] rounded-full"></span>
             </Link>
-            <Link href="#about" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>ABOUT US</span>
-              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
-            </Link>
-            <Link href="#services" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+            <Link href="/services/hydraulic-hose-repair" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
               <span>SERVICES</span>
               <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
             </Link>
-            <Link href="#products" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+            <Link href="/#products" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
               <span>PRODUCTS</span>
               <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
             </Link>
-            <Link href="#gallery" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>GALLERY</span>
+            <Link href="/locations/sundargarh" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>LOCATIONS</span>
+              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
+            </Link>
+            <Link href="/about" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
+              <span>ABOUT US</span>
               <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
             </Link>
           </nav>
@@ -124,10 +124,10 @@ export default function Navbar() {
             >
               <nav className="flex flex-col p-6 gap-4 font-bold text-lg text-[#081C3A]">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[#FF6A00]">HOME</Link>
-                <Link href="#about" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</Link>
-                <Link href="#services" onClick={() => setIsMobileMenuOpen(false)}>SERVICES</Link>
-                <Link href="#products" onClick={() => setIsMobileMenuOpen(false)}>PRODUCTS</Link>
-                <Link href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>GALLERY</Link>
+                <Link href="/services/hydraulic-hose-repair" onClick={() => setIsMobileMenuOpen(false)}>SERVICES</Link>
+                <Link href="/#products" onClick={() => setIsMobileMenuOpen(false)}>PRODUCTS</Link>
+                <Link href="/locations/sundargarh" onClick={() => setIsMobileMenuOpen(false)}>LOCATIONS</Link>
+                <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</Link>
                 
                 <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
                   <button 

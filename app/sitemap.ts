@@ -1,13 +1,52 @@
 import { MetadataRoute } from 'next';
 
+const BASE_URL = 'https://www.bharathydraulics.site';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const routes = [
     {
-      url: 'https://bharathydraulics.in',
+      url: BASE_URL,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
+      changeFrequency: 'weekly' as const,
+      priority: 1.0,
     },
-    // Add other routes here as the site grows
+    {
+      url: `${BASE_URL}/services/hydraulic-hose-repair`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/locations/rourkela`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/locations/jharsuguda`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/locations/keonjhar`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/locations/sundargarh`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
   ];
+
+  return routes;
 }

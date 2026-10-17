@@ -26,6 +26,20 @@ export const metadata: Metadata = {
     siteName: "Bharat Hydraulics Rajgangpur",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://www.bharathydraulics.site/hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Bharat Hydraulics Workshop Rajgangpur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bharat Hydraulics | #1 Hydraulic Repair in Rajgangpur",
+    description: "Top hydraulic repair shop in Rajgangpur, Odisha. 24/7 hydraulic hose repair, custom assemblies, and emergency on-site troubleshooting.",
+    images: ["https://www.bharathydraulics.site/hero.webp"],
   },
   robots: {
     index: true,
@@ -188,14 +202,15 @@ export default function RootLayout({
                 {/* Column 2: Quick Links */}
                 <div>
                   <h4 className="text-lg font-bold mb-8 text-white tracking-wide flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#FF6A00] rounded-sm"></span> Quick Links
+                    <span className="w-2 h-2 bg-[#FF6A00] rounded-sm"></span> Regional Hubs
                   </h4>
                   <ul className="space-y-4 text-gray-400 text-sm font-medium">
-                    <li><Link href="/" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Home</Link></li>
-                    <li><Link href="#about" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">About Company</Link></li>
-                    <li><Link href="#services" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Our Services</Link></li>
-                    <li><Link href="#gallery" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Facility Gallery</Link></li>
-                    <li><Link href="#faq" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Support & FAQ</Link></li>
+                    <li><Link href="/services/hydraulic-hose-repair" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Hose Repair Service</Link></li>
+                    <li><Link href="/locations/rourkela" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Rourkela & Kalunga</Link></li>
+                    <li><Link href="/locations/jharsuguda" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Jharsuguda & Belpahar</Link></li>
+                    <li><Link href="/locations/keonjhar" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Keonjhar & Barbil Mines</Link></li>
+                    <li><Link href="/locations/sundargarh" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Sundargarh District</Link></li>
+                    <li><Link href="/about" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">About Our Story & Expansion</Link></li>
                   </ul>
                 </div>
 
@@ -205,11 +220,11 @@ export default function RootLayout({
                     <span className="w-2 h-2 bg-[#FF6A00] rounded-sm"></span> Top Products
                   </h4>
                   <ul className="space-y-4 text-gray-400 text-sm font-medium">
-                    <li><Link href="#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Hydraulic Hoses</Link></li>
-                    <li><Link href="#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Fittings & Adapters</Link></li>
-                    <li><Link href="#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Quick Couplings</Link></li>
-                    <li><Link href="#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Industrial Hoses</Link></li>
-                    <li><Link href="#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">OEM Spares</Link></li>
+                    <li><Link href="/#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Hydraulic Hoses</Link></li>
+                    <li><Link href="/#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Fittings & Adapters</Link></li>
+                    <li><Link href="/#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Quick Couplings</Link></li>
+                    <li><Link href="/#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">Industrial Hoses</Link></li>
+                    <li><Link href="/#products" className="hover:text-[#FF6A00] transition-all hover:translate-x-1 inline-block">OEM Spares</Link></li>
                   </ul>
                 </div>
 
@@ -245,7 +260,7 @@ export default function RootLayout({
               <div className="border-t border-white/10 pt-8 pb-4 mb-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 font-medium">
                 <span className="mb-4 md:mb-0">Verified Business Listings:</span>
                 <div className="flex flex-wrap gap-6 items-center justify-center">
-                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                  <a href="https://maps.app.goo.gl/Z4Smp3f7pkFaxUY98" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
                     <span className="w-2 h-2 rounded-full bg-green-500"></span> Google My Business
                   </a>
                   <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
@@ -266,7 +281,7 @@ export default function RootLayout({
                 <div className="mt-4 md:mt-0 flex gap-8">
                   <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                   <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                  <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
+                  <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
                 </div>
               </div>
             </div>

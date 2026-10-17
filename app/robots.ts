@@ -36,6 +36,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://bharathydraulics.in/sitemap.xml',
+    sitemap: 'https://www.bharathydraulics.site/sitemap.xml',
   };
 }
