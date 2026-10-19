@@ -31,15 +31,19 @@ const staggerContainer: Variants = {
   }
 };
 
-function AnimatedCounter({ from, to }: { from: number; to: number }) {
-  const [count, setCount] = useState(from);
-  const nodeRef = useRef(null);
-  const inView = useInView(nodeRef, { once: true, margin: "-50px" });
+function AnimatedCounter({ from = 0, to }: { from?: number; to: number }) {
+  // Always initialize with 'to' so on initial paint / SSR / slow mobile connections it never flashes 0!
+  const [count, setCount] = useState(to);
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(nodeRef, { once: true, amount: 0.1 });
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !hasAnimated.current) {
+      hasAnimated.current = true;
+      setCount(from);
       const controls = animate(from, to, {
-        duration: 2.2,
+        duration: 1.8,
         ease: "easeOut",
         onUpdate(value) {
           setCount(Math.round(value));
@@ -49,7 +53,11 @@ function AnimatedCounter({ from, to }: { from: number; to: number }) {
     }
   }, [from, to, inView]);
 
-  return <span ref={nodeRef}>{count >= 1000 ? (count / 1000).toFixed(0) + "k" : count}</span>;
+  return (
+    <span ref={nodeRef} className="inline-block tabular-nums">
+      {count >= 1000 ? (count / 1000).toFixed(0) + "k" : count}
+    </span>
+  );
 }
 
 export default function Home() {
@@ -217,7 +225,7 @@ export default function Home() {
               alt="Heavy duty industrial hydraulic hose and machinery repair workshop in Rajgangpur Sundargarh"
               fill
               sizes="100vw"
-              quality={85}
+              quality={75}
               className="object-cover object-center"
               priority
             />
@@ -260,21 +268,21 @@ export default function Home() {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14">
-              <Magnetic strength={0.3}>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14 w-full">
+              <Magnetic strength={0.3} className="w-full sm:w-auto">
                 <a 
                   href="tel:+919178330536" 
-                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,106,0,0.4)] active:scale-95"
+                  className="w-full sm:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,106,0,0.4)] active:scale-95 text-center"
                 >
                   <Phone size={22} /> CALL EMERGENCY LINE
                 </a>
               </Magnetic>
-              <Magnetic strength={0.3}>
+              <Magnetic strength={0.3} className="w-full sm:w-auto">
                 <a 
                   href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20urgent%20hydraulic%20repair%20or%20hose%20fabrication" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95"
+                  className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 text-center"
                 >
                   <MessageSquare size={22} /> WHATSAPP QUOTE
                 </a>
@@ -282,22 +290,22 @@ export default function Home() {
             </motion.div>
 
             {/* Live Stats Ticker */}
-            <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10">
-              <div>
-                <div className="text-3xl font-black text-white"><AnimatedCounter from={0} to={6} />+</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Years of Excellence</div>
+            <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-white/10">
+              <div className="bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-white/5 sm:border-0">
+                <div className="text-2xl sm:text-3xl font-black text-white"><AnimatedCounter from={0} to={6} />+</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold mt-1">Years of Excellence</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-[#FF6A00]"><AnimatedCounter from={0} to={5000} />+</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Hoses Crimped</div>
+              <div className="bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-white/5 sm:border-0">
+                <div className="text-2xl sm:text-3xl font-black text-[#FF6A00]"><AnimatedCounter from={0} to={5000} />+</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold mt-1">Hoses Crimped</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-white"><AnimatedCounter from={0} to={1000} />+</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Machinery Clients</div>
+              <div className="bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-white/5 sm:border-0">
+                <div className="text-2xl sm:text-3xl font-black text-white"><AnimatedCounter from={0} to={1000} />+</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold mt-1">Machinery Clients</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-[#FF6A00]">24/7</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Sundargarh Dispatch</div>
+              <div className="bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-white/5 sm:border-0">
+                <div className="text-2xl sm:text-3xl font-black text-[#FF6A00]">24/7</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold mt-1">Sundargarh Dispatch</div>
               </div>
             </motion.div>
 
@@ -362,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* 2.5 IN-STOCK READY INVENTORY: R1, R2, SPIRAL & EVERY FITTING SIZE */}
-      <section className="py-24 bg-white border-b border-gray-100">
+      <section id="products" className="py-24 bg-white border-b border-gray-100 scroll-mt-24">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <span className="text-[#FF6A00] font-bold text-xs uppercase tracking-widest mb-2 block">Extensive Workshop Inventory</span>
@@ -507,7 +515,7 @@ export default function Home() {
               </div>
               <a
                 href="tel:+919178330536"
-                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider shrink-0 shadow-lg flex items-center gap-2"
+                className="w-full lg:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 text-center"
               >
                 <Phone size={14} /> Check Specific Size Availability
               </a>
@@ -552,7 +560,7 @@ export default function Home() {
                       fill
                       quality={75}
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 25vw"
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 25vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>

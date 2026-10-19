@@ -215,7 +215,7 @@ export default function LocationRourkelaPage() {
                 src="/warehouse.webp"
                 alt="High-pressure hydraulic hose crimping workshop serving Rourkela and Kalunga"
                 fill
-                quality={85}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />

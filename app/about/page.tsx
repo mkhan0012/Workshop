@@ -147,8 +147,8 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative h-[180px] sm:h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <Image 
                 src="/realpic.webp" 
                 alt="Inside the Bharat Hydraulics workshop in Rajgangpur Odisha"
@@ -162,7 +162,7 @@ export default function AboutPage() {
                 <span className="text-white text-xs font-bold">Rajgangpur Workshop</span>
               </div>
             </div>
-            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 mt-6">
+            <div className="relative h-[180px] sm:h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 sm:mt-6">
               <Image 
                 src="/warehouse.webp" 
                 alt="Vast inventory of high pressure hydraulic hoses and fittings in Sundargarh"
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 <span className="text-white text-xs font-bold">Comprehensive Spares Stock</span>
               </div>
             </div>
-            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 -mt-6">
+            <div className="relative h-[180px] sm:h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 sm:-mt-6">
               <Image 
                 src="/Workingmachine.webp" 
                 alt="Precision hydraulic hose crimping process in action"
@@ -190,7 +190,7 @@ export default function AboutPage() {
                 <span className="text-white text-xs font-bold">Precision Crimp Technology</span>
               </div>
             </div>
-            <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+            <div className="relative h-[180px] sm:h-[280px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <Image 
                 src="/realpic2.webp" 
                 alt="Bharat Hydraulics facility and skilled technicians"

@@ -313,7 +313,7 @@ export default function HydraulicHoseRepairPage() {
                 src="/Workingmachine.webp" 
                 alt="Precision high pressure hydraulic hose crimping in Rajgangpur workshop"
                 fill
-                quality={85}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />

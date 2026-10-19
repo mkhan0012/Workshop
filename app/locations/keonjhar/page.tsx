@@ -197,7 +197,7 @@ export default function LocationKeonjharPage() {
                 src="/car.webp"
                 alt="Heavy mining excavator and earthmoving hydraulic maintenance in Barbil Keonjhar"
                 fill
-                quality={85}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />

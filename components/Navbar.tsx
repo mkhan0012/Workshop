@@ -51,8 +51,8 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] origin-left z-[100] shadow-[0_0_15px_rgba(255,106,0,0.8)]"
         style={{ scaleX: scrollYProgress }}
       />
-      <header className="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-b border-gray-100/50 transition-all mt-1">
-        <div className="container mx-auto px-6 h-24 flex items-center justify-between">
+      <header className="bg-white/90 backdrop-blur-xl sticky top-0 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-b border-gray-100/50 transition-all">
+        <div className="container mx-auto px-6 h-20 lg:h-24 flex items-center justify-between">
           <Link href="/" className="flex items-center cursor-pointer group">
             <div className="relative w-[150px] h-[45px] md:w-[260px] md:h-[100px] lg:w-[280px] lg:h-[80px]">
               <Image
@@ -99,10 +99,13 @@ export default function Navbar() {
                 <div className="absolute inset-0 h-full w-full bg-[#0A2E6E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
               </button>
             </Magnetic>
-            <button className="bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-7 py-3 rounded-md flex items-center gap-2 font-bold transition-all transform hover:-translate-y-0.5 shadow-[0_5px_15px_rgba(10,46,110,0.3)] hover:shadow-[0_8px_25px_rgba(10,46,110,0.4)] active:scale-95 border border-white/10">
+            <a 
+              href="tel:+919178330536"
+              className="bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-7 py-3 rounded-md flex items-center gap-2 font-bold transition-all transform hover:-translate-y-0.5 shadow-[0_5px_15px_rgba(10,46,110,0.3)] hover:shadow-[0_8px_25px_rgba(10,46,110,0.4)] active:scale-95 border border-white/10"
+            >
               <Phone size={18} className="animate-pulse" />
               <span className="tracking-wide">+91 91783 30536</span>
-            </button>
+            </a>
           </div>
 
           <button 
@@ -120,7 +123,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t border-gray-100 overflow-hidden absolute w-full shadow-2xl"
+              className="lg:hidden bg-white border-t border-gray-100 overflow-hidden absolute top-full left-0 w-full shadow-2xl z-50"
             >
               <nav className="flex flex-col p-6 gap-4 font-bold text-lg text-[#081C3A]">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[#FF6A00]">HOME</Link>
@@ -136,9 +139,12 @@ export default function Navbar() {
                   >
                     Request Quote
                   </button>
-                  <button className="bg-[#0A2E6E] text-white w-full py-3 rounded-md flex items-center justify-center gap-2 font-bold hover:bg-[#081C3A] transition-colors">
+                  <a 
+                    href="tel:+919178330536"
+                    className="bg-[#0A2E6E] text-white w-full py-3 rounded-md flex items-center justify-center gap-2 font-bold hover:bg-[#081C3A] transition-colors"
+                  >
                     <Phone size={18} /> +91 91783 30536
-                  </button>
+                  </a>
                 </div>
               </nav>
             </motion.div>

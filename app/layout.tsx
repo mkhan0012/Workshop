@@ -292,11 +292,11 @@ export default function RootLayout({
             href="https://wa.me/919178330536" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center animate-bounce group border-[3px] border-white/20"
+            className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[100] bg-[#25D366] text-white p-3.5 sm:p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center group border-[3px] border-white/20 shadow-green-900/30"
             aria-label="Chat on WhatsApp"
           >
-            <MessageSquare size={28} className="fill-current" />
-            <span className="absolute -top-10 right-0 bg-white text-[#081C3A] text-xs font-bold py-1 px-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <MessageSquare className="fill-current w-6 h-6 sm:w-7 sm:h-7" />
+            <span className="hidden sm:inline-block absolute -top-10 right-0 bg-white text-[#081C3A] text-xs font-bold py-1 px-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Chat with us!
             </span>
           </a>

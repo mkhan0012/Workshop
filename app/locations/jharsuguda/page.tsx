@@ -168,7 +168,7 @@ export default function LocationJharsugudaPage() {
                 src="/Workingmachine.webp"
                 alt="Hydraulic hose crimping and heavy machinery support for Jharsuguda industries"
                 fill
-                quality={85}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
               />
