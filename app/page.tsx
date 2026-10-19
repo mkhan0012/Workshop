@@ -3,10 +3,9 @@
 
 import { motion, AnimatePresence, Variants, useScroll, useTransform, useInView, animate } from "framer-motion";
 import {
-  ShieldCheck, Wrench, Clock, ThumbsUp, ArrowRight,
-  CheckCircle2, Users, Factory, Award, MessageSquare, Phone,
-  Pickaxe, Zap, Tractor, HardHat, Plus, Minus, MapPin, Truck,
-  ChevronRight, Gauge, Sparkles, AlertCircle
+  Clock, ArrowRight, Factory, MessageSquare, Phone,
+  Pickaxe, Zap, Tractor, HardHat, Plus, Minus,
+  ChevronRight
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,7 +61,6 @@ function AnimatedCounter({ from = 0, to }: { from?: number; to: number }) {
 
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const [selectedCategory, setSelectedCategory] = useState<number>(0);
 
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 800], [0, 150]);
@@ -228,6 +226,7 @@ export default function Home() {
               quality={75}
               className="object-cover object-center"
               priority
+              fetchPriority="high"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#081C3A]/95 via-[#081C3A]/85 to-[#081C3A]/40 z-10" />
@@ -357,11 +356,14 @@ export default function Home() {
 
                 <Link 
                   href={hub.link} 
+                  aria-label={`View details and services for ${hub.name}`}
                   className={`text-sm font-bold inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform ${
                     idx === 0 ? "text-[#FF6A00]" : "text-[#0A2E6E]"
                   }`}
                 >
-                  View Details & Services <ArrowRight size={16} />
+                  <span>View Details &amp; Services</span>
+                  <span className="sr-only"> for {hub.name}</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             ))}
@@ -681,7 +683,7 @@ export default function Home() {
             <div className="space-y-6">
               <div>
                 <span className="text-xs font-bold text-[#FF6A00] uppercase tracking-wider block mb-1">Our Facility</span>
-                <h3 className="text-2xl font-black text-[#081C3A]">Bharat Hydraulics</h3>
+                <h2 className="text-2xl font-black text-[#081C3A]">Bharat Hydraulics Workshop</h2>
                 <p className="text-gray-600 mt-2 text-sm leading-relaxed">
                   Industrial Estate, Rajgangpur<br />
                   Sundargarh District, Odisha - 770017

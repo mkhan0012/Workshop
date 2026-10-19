@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  ShieldCheck, MapPin, Factory, Phone, Clock, Wrench, 
+  ShieldCheck, MapPin, Factory, Phone, Clock, 
   CheckCircle2, ChevronRight, MessageSquare, Truck, Award, 
-  Target, Compass, Users, Sparkles, ArrowRight
+  Target, Compass, Users, Sparkles
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tight">
-              Engineering Reliability For <span className="text-[#FF6A00]">Odisha's Heavy Machinery</span>
+              Engineering Reliability For <span className="text-[#FF6A00]">Odisha&apos;s Heavy Machinery</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-8">
               Founded on the frontlines of industrial Rajgangpur, Bharat Hydraulics was created to solve one urgent challenge: keeping heavy earthmoving, mining, and manufacturing equipment operating at full power without costly breakdown delays.

@@ -3,16 +3,26 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Mail, PhoneCall } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Phone, Menu, X, Mail } from "lucide-react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import Magnetic from "./Magnetic";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuotePopupOpen, setIsQuotePopupOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", details: "" });
   const [toastMessage, setToastMessage] = useState("");
   const { scrollYProgress } = useScroll();
+
+  const navLinks = [
+    { name: "HOME", href: "/" },
+    { name: "SERVICES", href: "/services/hydraulic-hose-repair" },
+    { name: "PRODUCTS", href: "/#products" },
+    { name: "LOCATIONS", href: "/locations/sundargarh" },
+    { name: "ABOUT US", href: "/about" },
+  ];
 
   const handleWhatsAppSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -66,27 +76,26 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8 font-bold text-sm text-[#081C3A] tracking-wider">
-            <Link href="/" className="relative group text-[#FF6A00]">
-              <span>HOME</span>
-              <span className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-[#FF6A00] rounded-full"></span>
-            </Link>
-            <Link href="/services/hydraulic-hose-repair" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>SERVICES</span>
-              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
-            </Link>
-            <Link href="/#products" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>PRODUCTS</span>
-              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
-            </Link>
-            <Link href="/locations/sundargarh" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>LOCATIONS</span>
-              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
-            </Link>
-            <Link href="/about" className="relative group hover:text-[#FF6A00] transition-colors duration-300">
-              <span>ABOUT US</span>
-              <span className="absolute -bottom-1.5 left-0 w-0 group-hover:w-full h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full"></span>
-            </Link>
+          <nav className="hidden lg:flex items-center gap-8 font-bold text-sm tracking-wider" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative group transition-colors duration-300 ${
+                    isActive ? "text-[#B84300] font-black" : "text-[#081C3A] hover:text-[#B84300]"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  <span
+                    className={`absolute -bottom-1.5 left-0 h-0.5 bg-[#FF6A00] transition-all duration-300 rounded-full ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden lg:flex items-center gap-5">
@@ -125,12 +134,22 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden bg-white border-t border-gray-100 overflow-hidden absolute top-full left-0 w-full shadow-2xl z-50"
             >
-              <nav className="flex flex-col p-6 gap-4 font-bold text-lg text-[#081C3A]">
-                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[#FF6A00]">HOME</Link>
-                <Link href="/services/hydraulic-hose-repair" onClick={() => setIsMobileMenuOpen(false)}>SERVICES</Link>
-                <Link href="/#products" onClick={() => setIsMobileMenuOpen(false)}>PRODUCTS</Link>
-                <Link href="/locations/sundargarh" onClick={() => setIsMobileMenuOpen(false)}>LOCATIONS</Link>
-                <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</Link>
+              <nav className="flex flex-col p-6 gap-4 font-bold text-lg" aria-label="Mobile Navigation">
+                {navLinks.map((link) => {
+                  const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`transition-colors ${
+                        isActive ? "text-[#B84300] font-black" : "text-[#081C3A] hover:text-[#B84300]"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
                 
                 <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
                   <button 
@@ -179,10 +198,10 @@ export default function Navbar() {
               <p className="text-gray-500 mb-8">Fill out the details below and our team will get back to you within 24 hours.</p>
 
               <form className="flex flex-col gap-4">
-                <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="Your Name / Company" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Email Address" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="Phone Number" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <textarea value={formData.details} onChange={(e) => setFormData({...formData, details: e.target.value})} placeholder="Tell us about your requirements (e.g. Custom Hose Assembly, Spares)..." rows={4} className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors resize-none" required></textarea>
+                <input type="text" aria-label="Your Name or Company" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="Your Name / Company" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <input type="email" aria-label="Email Address" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Email Address" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <input type="tel" aria-label="Phone Number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="Phone Number" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
+                <textarea aria-label="Tell us about your requirements" value={formData.details} onChange={(e) => setFormData({...formData, details: e.target.value})} placeholder="Tell us about your requirements (e.g. Custom Hose Assembly, Spares)..." rows={4} className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors resize-none" required></textarea>
                 
                 <button type="button" onClick={handleWhatsAppSubmit} className="bg-[#FF6A00] text-white font-bold py-4 rounded-lg mt-2 flex items-center justify-center gap-2 hover:bg-[#e65f00] transition-colors shadow-lg shadow-[#FF6A00]/30">
                   <Mail size={18} /> Send via WhatsApp

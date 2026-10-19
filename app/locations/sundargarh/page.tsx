@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Factory, ArrowRight, Phone, MessageSquare, Truck, Clock, Wrench } from "lucide-react";
+import { ShieldCheck, MapPin, Factory, Phone, MessageSquare, Truck, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -99,6 +98,7 @@ export default function LocationSundargarhPage() {
 
         {/* Coverage Details */}
         <section className="container mx-auto px-6 mb-20">
+          <h2 className="sr-only">Our Core Response Capabilities in Sundargarh</h2>
           <div className="bg-[#081C3A] rounded-3xl p-8 md:p-12 text-white grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex gap-4 items-start">
               <div className="w-12 h-12 rounded-xl bg-[#FF6A00]/20 text-[#FF6A00] flex items-center justify-center shrink-0">
@@ -162,21 +162,21 @@ export default function LocationSundargarhPage() {
 
         {/* Nearby Regional Hubs */}
         <section className="container mx-auto px-6 py-16">
-          <h3 className="text-2xl font-bold text-[#081C3A] mb-8 text-center">Explore Other Industrial Hubs We Serve</h3>
+          <h2 className="text-2xl font-bold text-[#081C3A] mb-8 text-center">Explore Other Industrial Hubs We Serve</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/locations/rourkela" className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-[#FF6A00]/40 shadow-sm hover:shadow-lg transition-all group">
               <span className="text-[#FF6A00] font-bold text-xs uppercase tracking-wider block mb-1">Steel Hub</span>
-              <h4 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Rourkela &amp; Kalunga</h4>
+              <h3 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Rourkela &amp; Kalunga</h3>
               <p className="text-gray-500 text-sm">24/7 hydraulic hose crimping and on-site support for rolling mills and heavy fabricators.</p>
             </Link>
             <Link href="/locations/jharsuguda" className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-[#FF6A00]/40 shadow-sm hover:shadow-lg transition-all group">
               <span className="text-[#FF6A00] font-bold text-xs uppercase tracking-wider block mb-1">Powerhouse Hub</span>
-              <h4 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Jharsuguda &amp; Belpahar</h4>
+              <h3 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Jharsuguda &amp; Belpahar</h3>
               <p className="text-gray-500 text-sm">High-pressure spiral hoses for thermal power stations and aluminum smelting plants.</p>
             </Link>
             <Link href="/locations/keonjhar" className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-[#FF6A00]/40 shadow-sm hover:shadow-lg transition-all group">
               <span className="text-[#FF6A00] font-bold text-xs uppercase tracking-wider block mb-1">Mining Belt</span>
-              <h4 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Keonjhar &amp; Barbil</h4>
+              <h3 className="text-xl font-bold text-[#081C3A] group-hover:text-[#FF6A00] transition-colors mb-2">Keonjhar &amp; Barbil</h3>
               <p className="text-gray-500 text-sm">Heavy excavator, rock breaker, and mining dumper hydraulic hose assemblies.</p>
             </Link>
           </div>

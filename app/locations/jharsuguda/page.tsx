@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Factory, Phone, Clock, Wrench, CheckCircle2, ChevronRight, MessageSquare, Truck, Gauge } from "lucide-react";
+import { MapPin, Factory, Phone, CheckCircle2, ChevronRight, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),

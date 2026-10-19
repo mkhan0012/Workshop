@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Pickaxe, Phone, Clock, Wrench, CheckCircle2, ChevronRight, MessageSquare, Truck, HardHat } from "lucide-react";
+import { ShieldCheck, Pickaxe, Phone, ChevronRight, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -167,7 +167,7 @@ export default function LocationKeonjharPage() {
             <div>
               <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-2">Rugged Reliability</h2>
               <h3 className="text-3xl md:text-4xl font-extrabold text-[#081C3A] mb-6">
-                Why Standard Hoses Fail In Keonjhar's Mines
+                Why Standard Hoses Fail In Keonjhar&apos;s Mines
               </h3>
               <p className="text-gray-600 leading-relaxed text-base mb-8">
                 Iron ore mining exposes hydraulic lines to sharp rock impacts, extreme dust abrasion, and continuous pressure spikes up to 420 bar. Using low-grade 2-wire hoses leads to dangerous blowouts. Bharat Hydraulics supplies <strong>ultra-heavy 4-spiral and 6-spiral wire hoses with MSHA-certified fire and abrasion protection</strong>.

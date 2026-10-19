@@ -2,9 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  ShieldCheck, Wrench, Clock, ArrowRight, Phone, MapPin, 
-  CheckCircle2, ChevronRight, MessageSquare, Gauge, Truck, 
-  Layers, Settings, Sparkles 
+  Wrench, Phone, MapPin, CheckCircle2, ChevronRight, MessageSquare 
 } from "lucide-react";
 
 export const metadata: Metadata = {

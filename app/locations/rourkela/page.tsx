@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Factory, Phone, Clock, Wrench, CheckCircle2, ChevronRight, MessageSquare, Truck, Zap } from "lucide-react";
+import { ShieldCheck, MapPin, Factory, Phone, Wrench, CheckCircle2, ChevronRight, MessageSquare, Truck, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -189,7 +189,7 @@ export default function LocationRourkelaPage() {
             <div>
               <h2 className="text-[#FF6A00] font-bold tracking-widest uppercase text-xs mb-2">Engineered For Heavy Industry</h2>
               <h3 className="text-3xl md:text-4xl font-extrabold text-[#081C3A] mb-6">
-                Why Rourkela's Industrial Plants Rely On Bharat Hydraulics
+                Why Rourkela&apos;s Industrial Plants Rely On Bharat Hydraulics
               </h3>
               <p className="text-gray-600 leading-relaxed text-base mb-8">
                 In steel manufacturing, foundry work, and heavy fabrication, a burst hydraulic hose can shut down an entire production line costing thousands of rupees per minute. Our workshop maintains a vast inventory of <strong>DIN & ISO certified hydraulic hoses, BSP/JIC/Metric adapters, and high-pressure flanges</strong> to get you running fast.
