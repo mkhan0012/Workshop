@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Pickaxe, Phone, ChevronRight, MessageSquare } from "lucide-react";
+import { ShieldCheck, Pickaxe, Mail, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -58,7 +58,7 @@ export default function LocationKeonjharPage() {
     "@type": "LocalBusiness",
     "name": "Bharat Hydraulics - Keonjhar & Barbil Mining Service",
     "description": "Heavy mining hydraulic hose repair, rock breaker assemblies, and on-site troubleshooting serving Keonjhar, Barbil, Joda, and Koira.",
-    "telephone": "+919178330536",
+    "email": "info@bharathydraulics.site",
     "url": "https://www.bharathydraulics.site/locations/keonjhar",
     "areaServed": [
       { "@type": "City", "name": "Keonjhar" },
@@ -121,22 +121,23 @@ export default function LocationKeonjharPage() {
                 Operating heavy excavators, rock breakers, and dumpers in Keonjhar’s iron ore mines? Bharat Hydraulics delivers extreme-duty 4SP/4SH spiral hydraulic hoses, precision crimping, and emergency troubleshooting to prevent expensive mining downtime.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <a
-                  href="tel:+919178330536"
-                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-md font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-lg"
+                  href="mailto:info@bharathydraulics.site?subject=Keonjhar%20Mining%20Hydraulic%20Hose%20Support"
+                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-base active:scale-95"
                 >
-                  <Phone size={20} /> Call Mining Emergency Line
+                  <Mail size={20} /> Email Mining Support Team
                 </a>
-                <a
-                  href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20heavy%20mining%20hose%20assemblies%20in%20Keonjhar/Barbil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-3 text-lg shadow-xl"
+                <Link
+                  href="/services/hydraulic-hose-repair"
+                  className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-3 text-base shadow-xl active:scale-95"
                 >
-                  <MessageSquare size={20} /> WhatsApp Mining Spares
-                </a>
+                  Explore Mining Hose Spares
+                </Link>
               </div>
+              <p className="text-xs text-gray-400 font-medium">
+                Mining Dispatch Desk: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+              </p>
             </div>
           </div>
         </section>
@@ -236,14 +237,14 @@ export default function LocationKeonjharPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919178330536"
-                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+                href="mailto:info@bharathydraulics.site?subject=Keonjhar%20Mining%20Hose%20Breakdown%20Quote"
+                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 active:scale-95"
               >
-                <Phone size={18} /> Call +91 91783 30536
+                <Mail size={18} /> Request Mining Spares Quote
               </a>
               <Link
                 href="/locations/sundargarh"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-md font-bold transition-all border border-white/20 flex items-center justify-center gap-2"
+                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-2 active:scale-95"
               >
                 View Sundargarh Coverage
               </Link>

@@ -5,12 +5,13 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
-import { MapPin, Mail, Clock, Phone, MessageSquare } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
+import QuotePopup from "@/components/QuotePopup";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -67,7 +68,7 @@ const jsonLd = {
   "description": "Odisha's top-rated hydraulic repair shop in Rajgangpur. We offer premium hydraulic hose repair, custom fitting services, and 24/7 on-site emergency repairs across Sundargarh and Odisha.",
   "image": "https://www.bharathydraulics.site/logo2.webp",
   "url": "https://www.bharathydraulics.site",
-  "telephone": "+919178330536",
+  "email": "info@bharathydraulics.site",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -91,10 +92,7 @@ const jsonLd = {
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     "opens": "08:30",
     "closes": "19:00"
-  },
-  "sameAs": [
-    "https://maps.app.goo.gl/Z4Smp3f7pkFaxUY98"
-  ]
+  }
 };
 
 export default function RootLayout({
@@ -145,19 +143,11 @@ export default function RootLayout({
             <div className="container mx-auto px-6 flex justify-between items-center tracking-wide font-medium">
               <div className="flex gap-8">
                 <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default"><MapPin size={14} className="text-[#FF6A00]" /> Rajgangpur, Odisha</span>
-                <span className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={14} className="text-[#FF6A00]" /> <a href="mailto:moshink0786@gmail.com">moshink0786@gmail.com</a></span>
+                <span className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={14} className="text-[#FF6A00]" /> <a href="mailto:info@bharathydraulics.site" className="hover:underline">info@bharathydraulics.site</a></span>
                 <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default"><Clock size={14} className="text-[#FF6A00]" /> Mon - Sat: 8:30 AM - 7:00 PM</span>
               </div>
-              <div className="flex gap-6">
-                <Link href="#" className="text-white/80 hover:text-[#FF8C33] transition-colors hover:scale-110 transform duration-300" aria-label="Facebook">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.61l.39-4H14V7a1 1 0 0 1 1-1h3z" /></svg>
-                </Link>
-                <Link href="#" className="text-white/80 hover:text-[#FF8C33] transition-colors hover:scale-110 transform duration-300" aria-label="Instagram">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
-                </Link>
-                <Link href="#" className="text-white/80 hover:text-[#FF8C33] transition-colors hover:scale-110 transform duration-300" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
-                </Link>
+              <div className="text-white/60 text-xs font-medium">
+                Industrial Hydraulic Services &bull; Sundargarh District
               </div>
             </div>
           </div>
@@ -188,21 +178,9 @@ export default function RootLayout({
                       className="object-contain object-left group-hover:opacity-85 transition-opacity brightness-0 invert" 
                     />
                   </Link>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-8 font-light pr-4">
-                    Engineering the future of heavy industry. We provide world-class hydraulic solutions, premium assemblies, and 24/7 on-site support to keep your operations moving.
+                  <p className="text-gray-300 text-sm leading-relaxed font-light pr-4">
+                    Engineering the future of heavy industry. We provide world-class hydraulic solutions, premium assemblies, and dedicated support to keep your operations moving.
                   </p>
-                  {/* Social Links */}
-                  <div className="flex gap-4">
-                    <a href="#" className="bg-white/5 hover:bg-[#FF6A00] p-2.5 rounded-md transition-colors text-white hover:shadow-lg hover:shadow-[#FF6A00]/20" aria-label="Facebook">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.61l.39-4H14V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                    <a href="#" className="bg-white/5 hover:bg-[#FF6A00] p-2.5 rounded-md transition-colors text-white hover:shadow-lg hover:shadow-[#FF6A00]/20" aria-label="LinkedIn">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="#" className="bg-white/5 hover:bg-[#FF6A00] p-2.5 rounded-md transition-colors text-white hover:shadow-lg hover:shadow-[#FF6A00]/20" aria-label="Instagram">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    </a>
-                  </div>
                 </div>
                 
                 {/* Column 2: Quick Links */}
@@ -246,66 +224,44 @@ export default function RootLayout({
                       </div>
                       <span className="mt-1 leading-relaxed">Industrial Estate, Rajgangpur<br/>Odisha, 770017</span>
                     </li>
-                    <li className="flex gap-4 items-center group">
-                      <div className="bg-white/5 p-2 rounded-md group-hover:bg-[#FF6A00] group-hover:text-white transition-colors text-[#FF6A00]">
-                        <Phone size={18} /> 
-                      </div>
-                      <span className="font-semibold text-white tracking-wide">+91 91783 30536</span>
-                    </li>
-                    <li className="flex gap-4 items-center group">
+                    <li className="flex gap-4 items-start group">
                       <div className="bg-white/5 p-2 rounded-md group-hover:bg-[#FF6A00] group-hover:text-white transition-colors text-[#FF6A00]">
                         <Mail size={18} /> 
                       </div>
-                      <a href="mailto:moshink0786@gmail.com" className="hover:text-[#FF6A00] transition-colors">moshink0786@gmail.com</a>
+                      <div>
+                        <span className="text-xs text-gray-400 block font-normal">Primary Email &amp; Quotes</span>
+                        <a href="mailto:info@bharathydraulics.site" className="font-semibold text-white hover:text-[#FF6A00] transition-colors">
+                          info@bharathydraulics.site
+                        </a>
+                      </div>
+                    </li>
+                    <li className="flex gap-4 items-start group">
+                      <div className="bg-white/5 p-2 rounded-md group-hover:bg-[#FF6A00] group-hover:text-white transition-colors text-[#FF6A00]">
+                        <Clock size={18} /> 
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 block font-normal">Working Hours</span>
+                        <span className="text-gray-300 font-medium">Mon - Sat: 8:30 AM - 7:00 PM</span>
+                      </div>
                     </li>
                   </ul>
                 </div>
               </div>
               
-              {/* Local Citations & Directories (Backlinks / Trust Signals) */}
-              <div className="border-t border-white/10 pt-8 pb-4 mb-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-300 font-medium">
-                <span className="mb-4 md:mb-0">Verified Business Listings:</span>
-                <div className="flex flex-wrap gap-6 items-center justify-center">
-                  <a href="https://maps.app.goo.gl/Z4Smp3f7pkFaxUY98" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <span className="w-2 h-2 rounded-full bg-green-500"></span> Google My Business
-                  </a>
-                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span> JustDial Rajgangpur
-                  </a>
-                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <span className="w-2 h-2 rounded-full bg-red-500"></span> IndiaMart
-                  </a>
-                  <a href="#" className="hover:text-[#FF6A00] transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <span className="w-2 h-2 rounded-full bg-yellow-500"></span> TradeIndia
-                  </a>
-                </div>
-              </div>
-
-              {/* Bottom Copyright Bar */}
-              <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium pt-4 border-t border-white/10">
-                <p>&copy; {new Date().getFullYear()} Bharat Hydraulics. All Rights Reserved.</p>
+              {/* Bottom Copyright & Legal Bar */}
+              <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium pt-8 border-t border-white/10">
+                <p>&copy; {new Date().getFullYear()} Bharat Hydraulics. All Rights Reserved. Heavy Fluid Power &amp; Hydraulic Engineering.</p>
                 <div className="mt-4 md:mt-0 flex gap-8">
-                  <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                  <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                  <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                  <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
                   <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
                 </div>
               </div>
             </div>
           </footer>
 
-          {/* Floating WhatsApp Widget */}
-          <a 
-            href="https://wa.me/919178330536" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[100] bg-[#25D366] text-white p-3.5 sm:p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform flex items-center justify-center group border-[3px] border-white/20 shadow-green-900/30"
-            aria-label="Chat on WhatsApp"
-          >
-            <MessageSquare className="fill-current w-6 h-6 sm:w-7 sm:h-7" />
-            <span className="hidden sm:inline-block absolute -top-10 right-0 bg-white text-[#081C3A] text-xs font-bold py-1 px-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              Chat with us!
-            </span>
-          </a>
+          {/* Site-wide Quote / Query Popup with 5s delay & floating action trigger */}
+          <QuotePopup />
         </SmoothScroll>
       </body>
     </html>

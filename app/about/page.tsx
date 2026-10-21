@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  ShieldCheck, MapPin, Factory, Phone, Clock, 
-  CheckCircle2, ChevronRight, MessageSquare, Truck, Award, 
+  ShieldCheck, MapPin, Factory, Mail, Clock, 
+  CheckCircle2, ChevronRight, Truck, Award, 
   Target, Compass, Users, Sparkles
 } from "lucide-react";
 
@@ -337,11 +337,13 @@ export default function AboutPage() {
             <div className="pt-4 border-t border-gray-100 space-y-3 text-sm">
               <div className="flex items-center gap-3 text-gray-700">
                 <Clock size={18} className="text-[#FF6A00]" />
-                <span>Mon – Sat: 8:30 AM – 7:00 PM (24/7 Emergency Calls)</span>
+                <span>Mon – Sat: 8:30 AM – 7:00 PM (Emergency Email Support)</span>
               </div>
               <div className="flex items-center gap-3 text-gray-700">
-                <Phone size={18} className="text-[#FF6A00]" />
-                <span className="font-bold text-[#081C3A]">+91 91783 30536</span>
+                <Mail size={18} className="text-[#FF6A00]" />
+                <a href="mailto:info@bharathydraulics.site" className="font-bold text-[#081C3A] hover:text-[#FF6A00] transition-colors">
+                  info@bharathydraulics.site
+                </a>
               </div>
             </div>
 
@@ -364,22 +366,23 @@ export default function AboutPage() {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8 text-base">
             Whether you are located in Rajgangpur, Kansbahal, Kalunga, Rourkela, or anywhere in Sundargarh district, our technical team is ready to dispatch.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
-              href="tel:+919178330536"
-              className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-md font-bold transition-all shadow-[0_0_20px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-lg"
+              href="mailto:info@bharathydraulics.site?subject=Sundargarh%20On-Site%20Hydraulic%20Support%20Inquiry"
+              className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-base active:scale-95"
             >
-              <Phone size={20} /> Call +91 91783 30536
+              <Mail size={20} /> Email Our Engineers
             </a>
-            <a
-              href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20would%20like%20to%20inquire%20about%20your%20services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-3 text-lg shadow-xl"
+            <Link
+              href="/services/hydraulic-hose-repair"
+              className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-3 text-base active:scale-95"
             >
-              <MessageSquare size={20} /> WhatsApp Us
-            </a>
+              View Services Catalog
+            </Link>
           </div>
+          <p className="text-xs text-gray-400 font-medium">
+            Direct Inquiries: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+          </p>
         </div>
       </section>
     </div>

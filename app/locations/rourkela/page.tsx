@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Factory, Phone, Wrench, CheckCircle2, ChevronRight, MessageSquare, Truck, Zap } from "lucide-react";
+import { ShieldCheck, MapPin, Factory, Mail, Wrench, CheckCircle2, ChevronRight, Truck, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -58,7 +58,7 @@ export default function LocationRourkelaPage() {
     "@type": "LocalBusiness",
     "name": "Bharat Hydraulics - Rourkela Service Area",
     "description": "Specialized industrial hydraulic hose assemblies, crimping, and 24/7 on-site repair serving Rourkela, Kalunga, and Sundargarh.",
-    "telephone": "+919178330536",
+    "email": "info@bharathydraulics.site",
     "url": "https://www.bharathydraulics.site/locations/rourkela",
     "areaServed": [
       { "@type": "City", "name": "Rourkela" },
@@ -143,22 +143,23 @@ export default function LocationRourkelaPage() {
                 Operating heavy machinery in Rourkela’s steel mills or Kalunga’s industrial units? Bharat Hydraulics delivers rapid on-site emergency hydraulic hose replacement, precision OEM crimping, and high-pressure fluid power solutions within minutes.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <a
-                  href="tel:+919178330536"
-                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-md font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-lg"
+                  href="mailto:info@bharathydraulics.site?subject=Rourkela%20Hydraulic%20Repair%20Inquiry"
+                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-base active:scale-95"
                 >
-                  <Phone size={20} /> Call Rourkela Emergency Team
+                  <Mail size={20} /> Email Rourkela Team
                 </a>
-                <a
-                  href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20urgent%20hydraulic%20repair%20service%20in%20Rourkela"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-3 text-lg shadow-xl"
+                <Link
+                  href="/services/hydraulic-hose-repair"
+                  className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-3 text-base shadow-xl active:scale-95"
                 >
-                  <MessageSquare size={20} /> WhatsApp Quick Quote
-                </a>
+                  View Hose Capabilities
+                </Link>
               </div>
+              <p className="text-xs text-gray-400 font-medium">
+                Industrial Desk: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+              </p>
             </div>
           </div>
         </section>
@@ -276,14 +277,14 @@ export default function LocationRourkelaPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919178330536"
-                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+                href="mailto:info@bharathydraulics.site?subject=Rourkela%20Hydraulic%20Breakdown%20Quote"
+                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 active:scale-95"
               >
-                <Phone size={18} /> Call +91 91783 30536
+                <Mail size={18} /> Request Rourkela Quote
               </a>
               <Link
                 href="/services/hydraulic-hose-repair"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-md font-bold transition-all border border-white/20 flex items-center justify-center gap-2"
+                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-2 active:scale-95"
               >
                 View Hose Repair Capabilities
               </Link>

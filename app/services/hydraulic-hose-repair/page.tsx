@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  Wrench, Phone, MapPin, CheckCircle2, ChevronRight, MessageSquare 
+  Wrench, Mail, MapPin, CheckCircle2, ChevronRight 
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -153,22 +153,23 @@ export default function HydraulicHoseRepairPage() {
                 Bharat Hydraulics maintains extensive ready inventory of high-pressure R1 (1SN), R2 (2SN), and 4SP/4SH multi-spiral hoses in every diameter from <strong>1/4&quot; up to 2&quot;</strong>. Get while-you-wait 15-minute custom crimping at our Rajgangpur workshop or 24/7 on-site emergency van repair anywhere in Sundargarh.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <a
-                  href="tel:+919178330536"
-                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-lg"
+                  href="mailto:info@bharathydraulics.site?subject=Immediate%20Hydraulic%20Hose%20Fabrication%20Inquiry"
+                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-base active:scale-95"
                 >
-                  <Phone size={20} /> Call For Immediate Hose Fabrication
+                  <Mail size={20} /> Request Fast Hose Fabrication
                 </a>
-                <a
-                  href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20a%20hydraulic%20hose%20quote"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-3 text-lg shadow-xl"
+                <Link
+                  href="/#products"
+                  className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-3 text-base shadow-xl active:scale-95"
                 >
-                  <MessageSquare size={20} /> WhatsApp Hose Specifications
-                </a>
+                  Browse Products &amp; Fittings
+                </Link>
               </div>
+              <p className="text-xs text-gray-400 font-medium">
+                Official Engineering Desk: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+              </p>
             </div>
           </div>
         </section>
@@ -228,14 +229,14 @@ export default function HydraulicHoseRepairPage() {
                 </div>
 
                 <a 
-                  href="tel:+919178330536"
+                  href={`mailto:info@bharathydraulics.site?subject=Quote%20Request%20for%20${encodeURIComponent(item.name)}`}
                   className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2 ${
                     idx === 1 
                       ? "bg-[#FF6A00] hover:bg-[#e65f00] text-white shadow-lg" 
                       : "bg-[#081C3A] hover:bg-[#0A2E6E] text-white"
                   }`}
                 >
-                  <Phone size={14} /> Inquire About {item.name.split(" ")[0]} Hose
+                  <Mail size={14} /> Inquire About {item.name.split(" ")[0]} Hose
                 </a>
               </div>
             ))}
@@ -350,14 +351,14 @@ export default function HydraulicHoseRepairPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919178330536"
-                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+                href="mailto:info@bharathydraulics.site?subject=Custom%20Hose%20Fabrication%20Urgent%20Request"
+                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 active:scale-95"
               >
-                <Phone size={18} /> Call +91 91783 30536
+                <Mail size={18} /> Request Custom Hose Fabrication
               </a>
               <Link
                 href="/about"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-md font-bold transition-all border border-white/20 flex items-center justify-center gap-2"
+                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-2 active:scale-95"
               >
                 Learn About Our Facility
               </Link>

@@ -4,16 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X, Mail } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import Magnetic from "./Magnetic";
+import { openQuoteModal } from "./QuotePopup";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isQuotePopupOpen, setIsQuotePopupOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", details: "" });
-  const [toastMessage, setToastMessage] = useState("");
   const { scrollYProgress } = useScroll();
 
   const navLinks = [
@@ -24,38 +22,8 @@ export default function Navbar() {
     { name: "ABOUT US", href: "/about" },
   ];
 
-  const handleWhatsAppSubmit = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      setToastMessage("Please fill out your Name and Phone Number.");
-      setTimeout(() => setToastMessage(""), 4000);
-      return;
-    }
-    const message = `*New Quote Request*%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Requirements:* ${formData.details}`;
-    window.open(`https://wa.me/919178330536?text=${message}`, "_blank");
-    setIsQuotePopupOpen(false);
-    setFormData({ name: "", email: "", phone: "", details: "" });
-    setToastMessage("Redirecting to WhatsApp...");
-    setTimeout(() => setToastMessage(""), 4000);
-  };
-
   return (
     <>
-      {/* Toast Notification */}
-      <AnimatePresence>
-        {toastMessage && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[2000] bg-gray-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 font-semibold text-sm border border-white/10"
-          >
-            <div className="w-2 h-2 rounded-full bg-[#FF6A00] animate-pulse" />
-            {toastMessage}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6A00] to-[#FF8C33] origin-left z-[100] shadow-[0_0_15px_rgba(255,106,0,0.8)]"
@@ -98,23 +66,24 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-4">
+            <a 
+              href="mailto:info@bharathydraulics.site"
+              className="text-xs font-bold text-gray-700 hover:text-[#FF6A00] flex items-center gap-1.5 transition-colors py-2 px-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200"
+              title="Email Bharat Hydraulics"
+            >
+              <Mail size={15} className="text-[#FF6A00]" />
+              <span>Email Us</span>
+            </a>
             <Magnetic strength={0.2}>
               <button 
-                onClick={() => setIsQuotePopupOpen(true)}
-                className="relative overflow-hidden bg-transparent border-2 border-[#0A2E6E] text-[#0A2E6E] px-6 py-2.5 rounded-md font-bold transition-all group hover:text-white hover:border-[#0A2E6E]"
+                type="button"
+                onClick={() => openQuoteModal()}
+                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-[0_4px_14px_rgba(255,106,0,0.3)] hover:shadow-[0_6px_20px_rgba(255,106,0,0.4)] active:scale-95 cursor-pointer"
               >
-                <span className="relative z-10">Request Quote</span>
-                <div className="absolute inset-0 h-full w-full bg-[#0A2E6E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
+                <span>Request a Quote</span>
               </button>
             </Magnetic>
-            <a 
-              href="tel:+919178330536"
-              className="bg-gradient-to-r from-[#0A2E6E] to-[#081C3A] text-white px-7 py-3 rounded-md flex items-center gap-2 font-bold transition-all transform hover:-translate-y-0.5 shadow-[0_5px_15px_rgba(10,46,110,0.3)] hover:shadow-[0_8px_25px_rgba(10,46,110,0.4)] active:scale-95 border border-white/10"
-            >
-              <Phone size={18} className="animate-pulse" />
-              <span className="tracking-wide">+91 91783 30536</span>
-            </a>
           </div>
 
           <button 
@@ -153,16 +122,17 @@ export default function Navbar() {
                 
                 <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
                   <button 
-                    onClick={() => { setIsQuotePopupOpen(true); setIsMobileMenuOpen(false); }}
-                    className="bg-gray-100 text-[#0A2E6E] w-full py-3 rounded-md font-bold hover:bg-gray-200 transition-colors"
+                    type="button"
+                    onClick={() => { openQuoteModal(); setIsMobileMenuOpen(false); }}
+                    className="bg-[#FF6A00] text-white w-full py-3.5 rounded-xl font-bold hover:bg-[#e65f00] transition-colors shadow-lg shadow-[#FF6A00]/25 text-center cursor-pointer"
                   >
-                    Request Quote
+                    Request a Quote
                   </button>
                   <a 
-                    href="tel:+919178330536"
-                    className="bg-[#0A2E6E] text-white w-full py-3 rounded-md flex items-center justify-center gap-2 font-bold hover:bg-[#081C3A] transition-colors"
+                    href="mailto:info@bharathydraulics.site"
+                    className="bg-[#081C3A] text-white w-full py-3 rounded-xl flex items-center justify-center gap-2 font-semibold text-sm hover:bg-[#0A2E6E] transition-colors"
                   >
-                    <Phone size={18} /> +91 91783 30536
+                    <Mail size={16} className="text-[#FF6A00]" /> Email Our Engineering Desk
                   </a>
                 </div>
               </nav>
@@ -170,47 +140,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </header>
-
-      {/* Quote Request Popup */}
-      <AnimatePresence>
-        {isQuotePopupOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-          >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl"
-            >
-              <button 
-                onClick={() => setIsQuotePopupOpen(false)}
-                className="absolute top-6 right-6 text-gray-400 hover:text-gray-800 transition-colors"
-                aria-label="Close quote popup"
-              >
-                <X size={24} />
-              </button>
-              
-              <h3 className="text-3xl font-extrabold text-[#081C3A] mb-2">Request A Quote</h3>
-              <p className="text-gray-500 mb-8">Fill out the details below and our team will get back to you within 24 hours.</p>
-
-              <form className="flex flex-col gap-4">
-                <input type="text" aria-label="Your Name or Company" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="Your Name / Company" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <input type="email" aria-label="Email Address" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="Email Address" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <input type="tel" aria-label="Phone Number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="Phone Number" className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors" required />
-                <textarea aria-label="Tell us about your requirements" value={formData.details} onChange={(e) => setFormData({...formData, details: e.target.value})} placeholder="Tell us about your requirements (e.g. Custom Hose Assembly, Spares)..." rows={4} className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-medium outline-none focus:border-[#FF6A00] transition-colors resize-none" required></textarea>
-                
-                <button type="button" onClick={handleWhatsAppSubmit} className="bg-[#FF6A00] text-white font-bold py-4 rounded-lg mt-2 flex items-center justify-center gap-2 hover:bg-[#e65f00] transition-colors shadow-lg shadow-[#FF6A00]/30">
-                  <Mail size={18} /> Send via WhatsApp
-                </button>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Factory, Phone, MessageSquare, Truck, Clock } from "lucide-react";
+import { ShieldCheck, MapPin, Factory, Mail, Truck, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -40,7 +40,7 @@ export default function LocationSundargarhPage() {
     "@type": "LocalBusiness",
     "name": "Bharat Hydraulics - Sundargarh Service Area",
     "description": "24/7 on-site hydraulic hose repair, crimping, and heavy machinery fluid power support serving all of Sundargarh district from our central Rajgangpur workshop.",
-    "telephone": "+919178330536",
+    "email": "info@bharathydraulics.site",
     "url": "https://www.bharathydraulics.site/locations/sundargarh",
     "areaServed": [
       { "@type": "City", "name": "Rajgangpur" },
@@ -78,22 +78,23 @@ export default function LocationSundargarhPage() {
           <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed mb-8">
             From our centrally positioned engineering workshop in Rajgangpur Industrial Estate, Bharat Hydraulics provides rapid on-site emergency van dispatch, custom R1, R2, and multi-spiral hose crimping, and cylinder overhauls across the entire Sundargarh district.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <a 
-              href="tel:+919178330536" 
-              className="inline-flex bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl items-center justify-center gap-3 text-base"
+              href="mailto:info@bharathydraulics.site?subject=Sundargarh%20Hydraulic%20Dispatch%20Request" 
+              className="inline-flex bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl items-center justify-center gap-3 text-base active:scale-95"
             >
-              <Phone size={18} /> Call Sundargarh Dispatch Line
+              <Mail size={18} /> Request On-Site Van Dispatch
             </a>
-            <a 
-              href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20on-site%20service%20in%20Sundargarh" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl items-center justify-center gap-3 text-base"
+            <Link 
+              href="/services/hydraulic-hose-repair"
+              className="inline-flex bg-[#081C3A] hover:bg-[#0A2E6E] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-xl items-center justify-center gap-3 text-base active:scale-95"
             >
-              <MessageSquare size={18} /> WhatsApp Quick Request
-            </a>
+              View Services Catalog
+            </Link>
           </div>
+          <p className="text-xs text-gray-500 font-medium">
+            Central Dispatch: <a href="mailto:info@bharathydraulics.site" className="text-[#081C3A] font-semibold underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+          </p>
         </section>
 
         {/* Coverage Details */}

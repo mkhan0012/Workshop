@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Factory, Phone, CheckCircle2, ChevronRight, MessageSquare } from "lucide-react";
+import { MapPin, Factory, Mail, CheckCircle2, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bharathydraulics.site"),
@@ -58,7 +58,7 @@ export default function LocationJharsugudaPage() {
     "@type": "LocalBusiness",
     "name": "Bharat Hydraulics - Jharsuguda Service Area",
     "description": "Industrial hydraulic hose assemblies, crimping, and on-site repair serving Jharsuguda, Belpahar, and Brajrajnagar.",
-    "telephone": "+919178330536",
+    "email": "info@bharathydraulics.site",
     "url": "https://www.bharathydraulics.site/locations/jharsuguda",
     "areaServed": [
       { "@type": "City", "name": "Jharsuguda" },
@@ -120,22 +120,23 @@ export default function LocationJharsugudaPage() {
                 Keep your heavy power plant, aluminum smelting, and mining operations running without downtime. Bharat Hydraulics delivers precision-crimped hydraulic hoses, high-pressure fittings, and 24/7 on-site repair across the Jharsuguda industrial belt.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <a
-                  href="tel:+919178330536"
-                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-md font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-lg"
+                  href="mailto:info@bharathydraulics.site?subject=Jharsuguda%20Hydraulic%20Hose%20Support%20Inquiry"
+                  className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_25px_rgba(255,106,0,0.4)] flex items-center justify-center gap-3 text-base active:scale-95"
                 >
-                  <Phone size={20} /> Call Jharsuguda Support
+                  <Mail size={20} /> Email Technical Support
                 </a>
-                <a
-                  href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20hydraulic%20hoses/repair%20in%20Jharsuguda"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-3 text-lg shadow-xl"
+                <Link
+                  href="/services/hydraulic-hose-repair"
+                  className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-3 text-base shadow-xl active:scale-95"
                 >
-                  <MessageSquare size={20} /> WhatsApp Instant Inquiry
-                </a>
+                  Explore Hose Services
+                </Link>
               </div>
+              <p className="text-xs text-gray-400 font-medium">
+                Official Desk: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00]">info@bharathydraulics.site</a>
+              </p>
             </div>
           </div>
         </section>
@@ -235,14 +236,14 @@ export default function LocationJharsugudaPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919178330536"
-                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-md font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+                href="mailto:info@bharathydraulics.site?subject=Jharsuguda%20Hydraulic%20Hose%20Assembly%20Quote"
+                className="bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 active:scale-95"
               >
-                <Phone size={18} /> Call +91 91783 30536
+                <Mail size={18} /> Email Engineering Support
               </a>
               <Link
                 href="/locations/rourkela"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-md font-bold transition-all border border-white/20 flex items-center justify-center gap-2"
+                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition-all border border-white/20 flex items-center justify-center gap-2 active:scale-95"
               >
                 Explore Rourkela Hub
               </Link>

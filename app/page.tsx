@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence, Variants, useScroll, useTransform, useInView, animate } from "framer-motion";
 import {
-  Clock, ArrowRight, Factory, MessageSquare, Phone,
+  Clock, ArrowRight, Factory, Mail, CheckCircle2, FileText,
   Pickaxe, Zap, Tractor, HardHat, Plus, Minus,
   ChevronRight
 } from "lucide-react";
@@ -12,6 +12,7 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 import HorizontalGallery from "@/components/HorizontalGallery";
+import { openQuoteModal } from "@/components/QuotePopup";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -202,8 +203,8 @@ export default function Home() {
             <Link href="/about" className="text-[#FF6A00] hover:underline flex items-center gap-1">
               About Us <ChevronRight size={12} />
             </Link>
-            <a href="tel:+919178330536" className="hover:text-white transition-colors flex items-center gap-1">
-              <Phone size={12} className="text-[#FF6A00]" /> +91 91783 30536
+            <a href="mailto:info@bharathydraulics.site" className="hover:text-white transition-colors flex items-center gap-1">
+              <Mail size={12} className="text-[#FF6A00]" /> info@bharathydraulics.site
             </a>
           </div>
         </div>
@@ -267,26 +268,29 @@ export default function Home() {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14 w-full">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-6 w-full">
               <Magnetic strength={0.3} className="w-full sm:w-auto">
-                <a 
-                  href="tel:+919178330536" 
-                  className="w-full sm:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,106,0,0.4)] active:scale-95 text-center"
+                <button 
+                  type="button"
+                  onClick={() => openQuoteModal()}
+                  className="w-full sm:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,106,0,0.4)] active:scale-95 text-center cursor-pointer"
                 >
-                  <Phone size={22} /> CALL EMERGENCY LINE
-                </a>
+                  <FileText size={20} /> REQUEST A FAST QUOTE
+                </button>
               </Magnetic>
               <Magnetic strength={0.3} className="w-full sm:w-auto">
                 <a 
-                  href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20urgent%20hydraulic%20repair%20or%20hose%20fabrication" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 text-center"
+                  href="mailto:info@bharathydraulics.site" 
+                  className="w-full sm:w-auto bg-[#0A2E6E] hover:bg-[#081C3A] text-white px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 text-center border border-white/20"
                 >
-                  <MessageSquare size={22} /> WHATSAPP QUOTE
+                  <Mail size={20} className="text-[#FF6A00]" /> EMAIL OUR ENGINEERS
                 </a>
               </Magnetic>
             </motion.div>
+            <motion.p variants={fadeUp} className="text-xs text-gray-300 font-medium mb-12 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0"></span>
+              <span>Official Engineering Desk: <a href="mailto:info@bharathydraulics.site" className="text-white underline hover:text-[#FF6A00] font-semibold">info@bharathydraulics.site</a> &bull; Response within hours</span>
+            </motion.p>
 
             {/* Live Stats Ticker */}
             <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-white/10">
@@ -515,12 +519,13 @@ export default function Home() {
                 <span className="bg-white/10 px-3 py-1.5 rounded-lg font-semibold text-xs text-white">SAE Code 61 / 62 Flanges</span>
                 <span className="bg-white/10 px-3 py-1.5 rounded-lg font-semibold text-xs text-white">Quick Release Couplings (QRC)</span>
               </div>
-              <a
-                href="tel:+919178330536"
-                className="w-full lg:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 text-center"
+              <button
+                type="button"
+                onClick={() => openQuoteModal("Check Specific Size Availability")}
+                className="w-full lg:w-auto bg-[#FF6A00] hover:bg-[#e65f00] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 text-center cursor-pointer"
               >
-                <Phone size={14} /> Check Specific Size Availability
-              </a>
+                <CheckCircle2 size={14} /> Check Specific Size Availability
+              </button>
             </div>
 
           </div>
@@ -571,12 +576,13 @@ export default function Home() {
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">{item.desc}</p>
                 </div>
 
-                <a 
-                  href="tel:+919178330536"
-                  className="w-full bg-gray-50 hover:bg-[#FF6A00] text-[#081C3A] hover:text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center transition-colors flex items-center justify-center gap-2"
+                <button 
+                  type="button"
+                  onClick={() => openQuoteModal(`Emergency Problem Fix: ${item.title}`)}
+                  className="w-full bg-gray-50 hover:bg-[#FF6A00] text-[#081C3A] hover:text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Phone size={14} /> Request Immediate Fix
-                </a>
+                  <ArrowRight size={14} /> Request Immediate Fix
+                </button>
               </div>
             ))}
           </div>
@@ -696,8 +702,10 @@ export default function Home() {
                   <span>Workshop Open: Mon – Sat (8:30 AM – 7:00 PM)</span>
                 </div>
                 <div className="flex items-center gap-2 font-bold text-[#081C3A]">
-                  <Phone size={16} className="text-[#FF6A00]" />
-                  <span>24/7 On-Site Emergency: +91 91783 30536</span>
+                  <Mail size={16} className="text-[#FF6A00]" />
+                  <a href="mailto:info@bharathydraulics.site" className="hover:text-[#FF6A00] transition-colors">
+                    info@bharathydraulics.site
+                  </a>
                 </div>
               </div>
 
@@ -722,21 +730,27 @@ export default function Home() {
           <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
             Our rapid response technicians and mobile equipment are on standby to minimize your downtime.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="tel:+919178330536"
-              className="bg-[#081C3A] hover:bg-[#0A2E6E] text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl flex items-center justify-center gap-3"
+          <div className="flex flex-col sm:flex-row justify-center gap-5 mb-8">
+            <button 
+              type="button"
+              onClick={() => openQuoteModal()}
+              className="bg-[#081C3A] hover:bg-[#06152B] text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(8,28,58,0.35)] hover:shadow-[0_15px_40px_rgba(8,28,58,0.5)] flex items-center justify-center gap-3 cursor-pointer active:scale-95"
             >
-              <Phone size={22} /> Call +91 91783 30536
-            </a>
+              <FileText size={20} className="text-[#FF6A00]" />
+              <span>Raise a Quote or Query</span>
+            </button>
             <a 
-              href="https://wa.me/919178330536?text=Hi%20Bharat%20Hydraulics,%20I%20need%20urgent%20support"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white hover:bg-gray-50 text-[#081C3A] px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl flex items-center justify-center gap-3"
+              href="mailto:info@bharathydraulics.site?subject=Emergency%20Hydraulic%20Assistance%20Sundargarh"
+              className="bg-white hover:bg-gray-100 text-[#081C3A] px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 active:scale-95"
             >
-              <MessageSquare size={22} className="text-[#25D366]" /> Chat on WhatsApp
+              <Mail size={20} className="text-[#0A2E6E]" />
+              <span>Email Technical Support</span>
             </a>
+          </div>
+          <div className="inline-flex items-center gap-2 bg-black/15 backdrop-blur-sm px-6 py-2.5 rounded-full text-xs font-semibold text-white/95 border border-white/10">
+            <span>Direct Inquiries:</span>
+            <a href="mailto:info@bharathydraulics.site" className="underline hover:text-white font-bold transition-colors">info@bharathydraulics.site</a>
+            <span>&bull; Rapid Response Across Sundargarh &amp; Odisha</span>
           </div>
         </div>
       </section>
